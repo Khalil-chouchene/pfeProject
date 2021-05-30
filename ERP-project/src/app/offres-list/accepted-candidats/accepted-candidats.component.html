@@ -1,0 +1,17 @@
+<p>accepted-candidats works!</p>
+<div class="row" style="max-height: 200px;">
+  <div class="col-xs-12">
+
+    <a routerLink="/profil"
+       *ngFor="let candidate of candidates"
+       class="list-group-item list-group-item-action">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="list-group-item-heading"> {{ candidate?.nom}}    {{ candidate?.prenom }} </h5>
+      </div>
+        <p >{{candidate?.titre}}</p>
+        <p>{{candidate?.adress}}</p>
+        <p>{{candidate?.tel}}</p>
+    </a>
+  </div>
+</div>
+<hr>

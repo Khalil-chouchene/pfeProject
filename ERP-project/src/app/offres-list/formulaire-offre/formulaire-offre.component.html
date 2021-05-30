@@ -1,0 +1,35 @@
+<p>formulaire-offre works!</p>
+<!DOCTYPE html>
+ <html>
+    <head>
+        <title>formulaire </title>
+        <meta charset='utf-8'>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     </head>
+     <body>
+         <div class="container">
+             <h1> Creation d'une offres</h1>
+             <br>
+             <form>
+               <fieldset>
+
+                 <div class="form-group">
+                   <label for="post">Entrez le nom du poste</label>
+                   <input type="text" class="form-control" id="post" name="offreName" ngModel>
+                 </div>
+                 <br>
+
+                 <div class="form-group">
+                   <label for="bio">Description</label>
+                   <textarea class="form-control" id="desc" rows="3" placeholder="décrire la poste" name="offreDesc" ngModel></textarea>
+                 </div>
+                 <br>
+                 <button class="btn btn-primary" type="submit"  (click)="onCreatePost( offrePost )">Envoyer</button>
+
+                </fieldset>
+             </form>
+         </div>
+    </body>
+</html>
+
+

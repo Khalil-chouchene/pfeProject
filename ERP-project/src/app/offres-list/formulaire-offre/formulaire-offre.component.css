@@ -1,0 +1,12 @@
+.container{
+  position:absolute;
+  top:40%;
+  left:40%;
+  width:600px;          /* A toi de donner la bonne largeur */
+  height:450px;                 /* A toi de donner la bonne hauteur */
+  margin-left:-150px; /* -largeur/2 */
+  margin-top:-100px; /* -hauteur/2 */
+
+  border: 3px grey ;
+
+}
