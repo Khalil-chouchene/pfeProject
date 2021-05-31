@@ -17,6 +17,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { FormulaireOffreComponent } from './offres-list/formulaire-offre/formulaire-offre.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './cms/home/home.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AcceptedCandidatsComponent,
     HiredCandidatsComponent,
     ProfilComponent,
+    HomeComponent,
     PostulerComponent,
     HeaderComponent,
     FooterComponent,
