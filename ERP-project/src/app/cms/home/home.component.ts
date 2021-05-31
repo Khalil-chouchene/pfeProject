@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.module';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -15,29 +16,31 @@ export class HomeComponent implements OnInit {
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   });
-  url: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com//posts.json';
+  url: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com/post';
 
   // tslint:disable-next-line: typedef
-  get Name() {
+  get name() {
     return this.offreCreationForms.get('name');
   }
 
   // tslint:disable-next-line:typedef
   get description() {
-    return this.offreCreationForms.get('name');
+    return this.offreCreationForms.get('description');
   }
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private homeService: HomeService) {}
 
   ngOnInit(): void {}
 
   // tslint:disable-next-line:typedef
-  onCreatePost(data: Offre) {
+  onCreatePost() {
+    this.offrePost = {
+      descrption: this.description.value,
+      nom: this.name.value,
+    };
     // Send Http request
-    this.http
-      .post<{ name: string }>(this.url, this.offrePost)
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+    this.homeService.onCreatePost(this.offrePost).subscribe((responseData) => {
+      console.log(responseData);
+    });
   }
 
   // tslint:disable-next-line:typedef

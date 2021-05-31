@@ -1,7 +1,7 @@
 <div class="container">
   <h1>Creation d'une offres</h1>
   <br />
-  <form>
+  <form [formGroup]="offreCreationForms">
     <fieldset>
       <div class="form-group">
         <label for="post">Entrez le nom du poste</label>
@@ -30,7 +30,8 @@
       <button
         class="btn btn-primary"
         type="submit"
-        (click)="onCreatePost($event)"
+        [disabled]="!offreCreationForms.valid"
+        (click)="onCreatePost()"
       >
         Envoyer
       </button>
