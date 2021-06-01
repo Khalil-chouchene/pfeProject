@@ -2,8 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
-import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.module';
-import { CandidateService } from '../../shared/services/home.service';
+import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.model';
+import { CandidateService } from '../../shared/services/candidate.service';
 
 @Component({
   selector: 'app-home',

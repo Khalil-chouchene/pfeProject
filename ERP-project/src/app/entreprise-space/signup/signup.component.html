@@ -1,9 +1,9 @@
-
 <div>
   <ol class="breadcrumb">
-			<li><a href="index.html">Home</a> <span class="active"> / Registration</span></li>
-			
-		</ol>
+    <li>
+      <a href="index.html">Home</a> <span class="active"> / Registration</span>
+    </li>
+  </ol>
 </div>
 <header class="page-header">
   <h1 class="page-title">Registration</h1>
@@ -12,47 +12,57 @@
   <div class="panel panel-default">
     <div class="panel-body">
       <h3 class="thin text-center">Register a new account</h3>
-      <p class="text-center text-muted">retournez pour, <a routerLink="/login" href>Login</a> 
+      <p class="text-center text-muted">
+        retournez pour, <a routerLink="/login" href>Login</a>
+      </p>
 
-      <hr>
+      <hr />
 
-      <form>
-        <div class="top-margin">
-          <label>First Name</label>
-          <input type="text" class="form-control">
+      <form [formGroup ]="">
+        <div class="form-icon">
+          <span><i class="icon icon-user"></i></span>
         </div>
         <div class="top-margin">
-          <label>Last Name</label>
-          <input type="text" class="form-control">
+          <label> Name</label>
+          <input type="text" class="form-control" formControlName="name" />
         </div>
         <div class="top-margin">
           <label>Email Address <span class="text-danger">*</span></label>
-          <input type="text" class="form-control">
+          <input type="text"
+          class="form-control"
+          formControlName="email" />
         </div>
 
         <div class="row top-margin">
           <div class="col-sm-6">
             <label>Password <span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="signupPassword"
+            />
           </div>
           <div class="col-sm-6">
             <label>Confirm Password <span class="text-danger">*</span></label>
-            <input type="text" class="form-control">
+            <input
+              type="text"
+              class="form-control"
+              formControlName="confirmPassword"
+            />
           </div>
         </div>
 
-        <hr>
+        <hr />
 
         <div class="row">
-          <div class="col-lg-4  text-right">
-            <button class=" btn btn-action" type="submit">Register</button>
+          <div class="col-lg-4 text-right">
+            <button class="btn btn-action" type="submit">Register</button>
           </div>
         </div>
       </form>
     </div>
   </div>
-
 </div>
-<br>
-<br>
-<br>
+<br />
+<br />
+<br />
