@@ -1,6 +1,6 @@
-export interface Candidat {
-  firstName: string;
-  lastName: string;
+export interface Entreprise {
+
+  Name: string;
   emailAdd: string;
   passWord: string;
   confirmPassW: string;

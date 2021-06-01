@@ -28,6 +28,7 @@ const candidateRoutes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild(candidateRoutes),
   ],
   exports: [],

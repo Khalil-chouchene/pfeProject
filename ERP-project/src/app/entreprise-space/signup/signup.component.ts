@@ -1,52 +1,51 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 
-import { Candidat } from './candidat.model';
+import { Entreprise } from './candidat.model';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
 
-  offrePost: Candidat ;
-  url: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com//posts.json';
-  constructor( private http: HttpClient ) { }
+  signupForm = new FormGroup({
+    EntrepriseName: new FormControl('', Validators.required),
+    password: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.required),
+    passwordSignup: new FormControl('', Validators.required),
+    confirmPassword: new FormControl('', Validators.required),
+  });
 
-  ngOnInit(): void {
+  signupPost: Entreprise;
+
+  // tslint:disable-next-line: typedef
+  get firstName() {
+    return this.signupForm.get('firstName');
+  }
+  // tslint:disable-next-line: typedef
+  get lastName() {
+    return this.signupForm.get('lastName');
+  }
+  // tslint:disable-next-line: typedef
+  get email() {
+    return this.signupForm.get('email');
+  }
+  // tslint:disable-next-line: typedef
+  get passwordSignup() {
+    return this.signupForm.get('signupPassword');
+  }
+  // tslint:disable-next-line: typedef
+  get confirmPassword() {
+    return this.signupForm.get('confirmPassword');
   }
 
- // tslint:disable-next-line:typedef
- onCreatePost( data: Candidat) {                 // Send Http request
-  this.http.post<{name: string}> (this.url, this.offrePost
-      ).subscribe(responseData => {
-         console.log(responseData);
-      });
-}
+  constructor(private http: HttpClient, ) {}
 
-// tslint:disable-next-line:typedef
-onFetchData(){
-  this.fetchPosts();
-}
+  ngOnInit(): void {}
 
-// tslint:disable-next-line:typedef
-private fetchPosts(){
-  this.http
-    .get<{ [key: string]: Candidat }>(this.url)
-      .pipe(map(responseData  => {
-       const postsArray: Candidat[] = [];
-       for (const key in responseData){
-         if (responseData.hasOwnProperty(key)){
-           postsArray.push({ ...responseData[key]} );
-         }
-        }
-      }))
-      .subscribe(posts => {
-        console.log(posts);
-      });
 }
-}
-
