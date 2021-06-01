@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.module';
-import { HomeService } from './home.service';
+import { CandidateService } from '../../shared/services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -16,18 +16,15 @@ export class HomeComponent implements OnInit {
     name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
   });
-  url: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com/post';
 
-  // tslint:disable-next-line: typedef
   get name() {
     return this.offreCreationForms.get('name');
   }
 
-  // tslint:disable-next-line:typedef
   get description() {
     return this.offreCreationForms.get('description');
   }
-  constructor(private http: HttpClient, private homeService: HomeService) {}
+  constructor(private homeService: CandidateService) {}
 
   ngOnInit(): void {}
 
@@ -45,11 +42,11 @@ export class HomeComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onFetchData() {
-    this.fetchPosts();
+    /*     this.fetchPosts(); */
   }
 
   // tslint:disable-next-line:typedef
-  private fetchPosts() {
+  /*   private fetchPosts() {
     this.http
       .get<{ [key: string]: Offre }>(this.url)
       .pipe(
@@ -65,12 +62,12 @@ export class HomeComponent implements OnInit {
       .subscribe((posts) => {
         console.log(posts);
       });
-  }
+  } */
 
   // tslint:disable-next-line:typedef
-  onClearPosts() {
+  /* onClearPosts() {
     this.http.delete(this.url).subscribe(() => {
       // init tab with new elements
     });
-  }
+  } */
 }

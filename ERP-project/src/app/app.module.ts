@@ -1,34 +1,47 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { AppComponent } from './app.component';
+import { AppComponent } from './app.component'; /* 
 import { OffresListComponent } from './offres-list/offres-list.component';
 import { DefaultLayoutComponent } from './layouts/default-layout/default-layout.component';
 import { BackendLayoutComponent } from './layouts/backend-layout/backend-layout.component';
 import { AllCandidatsComponent } from './offres-list/all-candidats/all-candidats.component';
 import { AcceptedCandidatsComponent } from './offres-list/accepted-candidats/accepted-candidats.component';
-import { HiredCandidatsComponent } from './offres-list/hired-candidats/hired-candidats.component';
+import { HiredCandidatsComponent } from './offres-list/hired-candidats/hired-candidats.component'; 
 import { ProfilComponent } from './offres-list/profil/profil.component';
-import { PostulerComponent } from './postuler/postuler.component';
-import { AppRoutingModule } from './app-routing.module';
-import { HeaderComponent } from './header/header.component';
+import { PostulerComponent } from './postuler/postuler.component';*/
+/* import { AppRoutingModule } from './app-routing.module'; */ /* 
 import { FooterComponent } from './shared/footer/footer.component';
-import { SideBarComponent } from './side-bar/side-bar.component';
-import { FormulaireOffreComponent } from './offres-list/formulaire-offre/formulaire-offre.component';
-import { HttpClientModule } from '@angular/common/http';
+import { FormulaireOffreComponent } from './offres-list/formulaire-offre/formulaire-offre.component'; */
+import { HttpClientModule } from '@angular/common/http'; /* 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeComponent } from './cms/home/home.component';
+import { HomeComponent } from './candidate-space/home/home.component'; */
+/* import { CandidateModule } from './candidate-space'; */ /* 
+import { EntrepriseModule } from './entreprise-space/entreprise.module'; */
+import { SharedModule } from './shared';
+import { RouterModule, Routes } from '@angular/router';
 
+const appRoutes: Routes = [
+  {
+    path: '',
+    loadChildren: () =>
+      import('./candidate-space/candidate.module').then(
+        (m) => m.CandidateModule
+      ),
+  },
+];
 @NgModule({
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
+    /*  AppRoutingModule, */
+    RouterModule.forRoot(appRoutes),
+    /*  EntrepriseModule, */
+    SharedModule,
   ],
   declarations: [
     AppComponent,
-    OffresListComponent,
+    /*  OffresListComponent,
     DefaultLayoutComponent,
     BackendLayoutComponent,
     AllCandidatsComponent,
@@ -40,7 +53,7 @@ import { HomeComponent } from './cms/home/home.component';
     HeaderComponent,
     FooterComponent,
     SideBarComponent,
-    FormulaireOffreComponent,
+    FormulaireOffreComponent, */
   ],
   providers: [],
   bootstrap: [AppComponent],
