@@ -22,20 +22,30 @@ import { SharedModule } from './shared';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './entreprise-space/login/login.component';
 import { SignupComponent } from './entreprise-space/signup/signup.component';
+import { MyOffresComponent } from './offres-list/my-offres/my-offres.component';
+import { HomeComponent } from './candidate-space/home/home.component';
 
 const appRoutes: Routes = [
+
   {
-    path: '',
+     path: '',
     loadChildren: () =>
       import('./candidate-space/candidate.module').then(
         (m) => m.CandidateModule
+      ),
+  },
+  {
+    path: 'entreprise',
+    loadChildren: () =>
+      import('./entreprise-space/entreprise.module').then(
+        (m) => m.EntrepriseModule
       ),
   },
 ];
 
 @NgModule({
   imports: [
-HttpClientModule,
+    HttpClientModule,
     BrowserModule,
     /*  AppRoutingModule, */
     RouterModule.forRoot(appRoutes),

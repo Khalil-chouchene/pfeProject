@@ -1,6 +1,8 @@
+import { getLocaleMonthNames } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.model';
 import { CandidateService } from '../../shared/services/candidate.service';
@@ -24,7 +26,7 @@ export class HomeComponent implements OnInit {
   get description() {
     return this.offreCreationForms.get('description');
   }
-  constructor(private homeService: CandidateService) {}
+  constructor(private homeService: CandidateService , private router: Router ) {}
 
   ngOnInit(): void {}
 
@@ -38,36 +40,8 @@ export class HomeComponent implements OnInit {
     this.homeService.onCreatePost(this.offrePost).subscribe((responseData) => {
       console.log(responseData);
     });
+
   }
 
-  // tslint:disable-next-line:typedef
-  onFetchData() {
-    /*     this.fetchPosts(); */
-  }
 
-  // tslint:disable-next-line:typedef
-  /*   private fetchPosts() {
-    this.http
-      .get<{ [key: string]: Offre }>(this.url)
-      .pipe(
-        map((responseData) => {
-          const postsArray: Offre[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key] });
-            }
-          }
-        })
-      )
-      .subscribe((posts) => {
-        console.log(posts);
-      });
-  } */
-
-  // tslint:disable-next-line:typedef
-  /* onClearPosts() {
-    this.http.delete(this.url).subscribe(() => {
-      // init tab with new elements
-    });
-  } */
 }

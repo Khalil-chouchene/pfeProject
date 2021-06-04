@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CandidateService } from 'src/app/shared/services/candidate.service';
 
 @Component({
@@ -12,9 +13,10 @@ export class PostulerComponent implements OnInit {
   postuled: any;
 
   postulerForm = new FormGroup({
-    email: new FormControl('', Validators.required),
-    cv: new FormControl('', Validators.required),
-    acceptTerms: new FormControl(false, Validators.requiredTrue),
+    candidatName: new FormControl('', [Validators.required]),
+    candidatLastName: new FormControl('', [Validators.required]),
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    cv: new FormControl('', [Validators.required]),
   });
 
   get email() {
@@ -23,8 +25,17 @@ export class PostulerComponent implements OnInit {
   get cv() {
     return this.postulerForm.get('cv');
   }
+  get candidatName() {
+    return this.postulerForm.get('candidatName');
+  }
+  get candidatLastName() {
+    return this.postulerForm.get('candidatLastName');
+  }
 
-  constructor(private postulerService: CandidateService) {}
+  constructor(
+    private postulerService: CandidateService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -33,13 +44,19 @@ export class PostulerComponent implements OnInit {
     this.postuled = {
       email: this.email.value,
       cv: this.cv.value,
+      candidatName: this.candidatName.value,
+      candidatLastName: this.candidatLastName.value,
     };
-    // Send Http request
-    this.postulerService
-      .onPostule(this.postuled)
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
+    const confirmed = confirm('Are you sure !');
+    if (confirmed === true) {
+      // Send Http request
+      this.postulerService
+        .onPostule(this.postuled)
+        .subscribe((responseData) => {
+          console.log(responseData);
+        });
+      this.router.navigate(['offres']);
+    }
   }
 
   // convenience getter for easy access to form fields
@@ -49,7 +66,6 @@ export class PostulerComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-
     // stop here if form is invalid
     if (this.postulerForm.invalid) {
       return;

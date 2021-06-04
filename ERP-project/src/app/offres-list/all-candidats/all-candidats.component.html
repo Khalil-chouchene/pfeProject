@@ -7,7 +7,7 @@
        *ngFor="let candidate of candidates"
        class="list-group-item list-group-item-action">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="list-group-item-heading"> {{ candidate?.nom}}    {{ candidate?.prenom }} </h5>
+        <h5 class="list-group-item-heading"> {{ candidate?.name}}    {{ candidate?.lastName }} </h5>
       </div>
         <p >{{candidate?.titre}}</p>
         <p>{{candidate?.adress}}</p>
@@ -28,11 +28,9 @@
             </div>
             <div class="col-sm-6">
               <a
-                class="btn btn-success"
+                class="btn btn-danger"
                 data-toggle="modal"
-                [routerLink]="['save']"
-
-                ><i class="fas fa-plus"></i> <span>Add New</span></a
+                ><i class="fas fa-plus"></i> <span>Clear all</span></a
               >
             </div>
           </div>
@@ -42,6 +40,8 @@
             <tr>
               <th class="e2e-thead-name">First name</th>
               <th class="e2e-thead-description">Last name</th>
+              <th class="e2e-thead-titre">titre</th>
+              <th class="e2e-thead-adress">adress</th>
               <th class="e2e-thead-action">Action</th>
             </tr>
           </thead>
@@ -55,13 +55,8 @@
               </td>
               <td>{{ candidate.prenom }}</td>
               <td>
-                <!--                 <a class="settings" title="detail"
-                  [routerLink]="['detail', organization.id]"
-                  >
-                    <i class="far fa-eye"></i>
-                  </a> -->
                 <a
-                  [routerLink]="[candidate.id, 'offre']"
+                  [routerLink]="[candidate.id, 'profil']"
                   class="edit e2e-edit"
                   title="Edit"
                 >
@@ -78,22 +73,7 @@
             </tr>
           </tbody>
         </table>
-        <!--         <div class="clearfix">
-            <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
-            <ul class="pagination">
-              <li class="page-item disabled"><a href="#">Previous</a></li>
-              <li class="page-item"><a href="#" class="page-link">1</a></li>
-              <li class="page-item"><a href="#" class="page-link">2</a></li>
-              <li class="page-item active">
-                <a href="#" class="page-link">3</a>
-              </li>
-              <li class="page-item"><a href="#" class="page-link">4</a></li>
-              <li class="page-item"><a href="#" class="page-link">5</a></li>
-              <li class="page-item"><a href="#" class="page-link">Next</a></li>
-            </ul>
-          </div> -->
       </div>
     </div>
   </div>
 </main>
-
