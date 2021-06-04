@@ -6,19 +6,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PostulerComponent } from './postuler/postuler.component';
 import { OffresListComponent } from './offres-list/offres-list.component';
+import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
 
 const candidateRoutes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'offres',
     pathMatch: 'full',
   },
   {
-    path: 'home',
+    path: 'offres',
     component: OffresListComponent,
   },
   {
-    path: 'home/:id/offre',
+    path: 'offres/:id',
     component: PostulerComponent,
   },
 ];

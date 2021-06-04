@@ -1,5 +1,6 @@
 
 export class Candidate {
+  public id: number;
   public nom: string ;
   public prenom: string;
   public titre?: string;

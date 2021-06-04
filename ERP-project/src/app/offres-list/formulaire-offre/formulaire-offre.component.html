@@ -1,32 +1,44 @@
-<div class="container">
-  <h1>Creation d'une offres</h1>
-  <br />
-  <form>
-    <fieldset>
-      <div class="form-group">
-        <label for="post">Entrez le nom du poste</label>
-        <input type="text" class="form-control" id="post" name="offreName" />
-      </div>
-      <br />
+<main role="main" class="view-organization screen">
+  <div class="container container-view">
+    <div class="container_header header"></div>
+    <div class="container_content">
+      <div class="container">
+        <h1>Creation d'une offres</h1>
+        <br />
+        <form>
+          <fieldset>
+            <div class="form-group">
+              <label for="post">Entrez le nom du poste</label>
+              <input
+                type="text"
+                class="form-control"
+                id="post"
+                name="offreName"
+              />
+            </div>
+            <br />
 
-      <div class="form-group">
-        <label for="bio">Description</label>
-        <textarea
-          class="form-control"
-          id="desc"
-          rows="3"
-          placeholder="décrire la poste"
-          name="offreDesc"
-        ></textarea>
+            <div class="form-group">
+              <label for="bio">Description</label>
+              <textarea
+                class="form-control"
+                id="desc"
+                rows="3"
+                placeholder="décrire la poste"
+                name="offreDesc"
+              ></textarea>
+            </div>
+            <br />
+            <button
+              class="btn btn-primary"
+              type="submit"
+              (click)="onCreatePost(offrePost)"
+            >
+              Envoyer
+            </button>
+          </fieldset>
+        </form>
       </div>
-      <br />
-      <button
-        class="btn btn-primary"
-        type="submit"
-        (click)="onCreatePost(offrePost)"
-      >
-        Envoyer
-      </button>
-    </fieldset>
-  </form>
-</div>
+    </div>
+  </div>
+</main>

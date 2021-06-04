@@ -20,3 +20,16 @@
   color: white;
   border: #435d7d;
 }
+.container-view{
+  padding-left:18%;
+}
+.card-body{
+  background:#BEC0C2;
+}
+._ngcontent-cmo-c53{
+  color:white ;
+}
+.required{
+  color: red;
+  
+}
