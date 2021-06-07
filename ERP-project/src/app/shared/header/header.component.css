@@ -1,6 +1,7 @@
 .rec-col {
+  font-size: x-large;
   color: #fdfdfd;
-  margin-left: 182%;
+  margin-left: 150%;
 }
 .btn.btn-dark {
   border-radius: 25px;
@@ -72,7 +73,7 @@ select {
 }
 .navbar-expand-md {
   width: 100%;
-  height: 80px;
+  height: 70px;
 }
 .rec-col[_ngcontent-nwj-c11] {
   color: #ff9b22;

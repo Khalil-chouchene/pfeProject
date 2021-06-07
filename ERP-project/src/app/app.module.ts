@@ -48,7 +48,8 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserModule,
     /*  AppRoutingModule, */
-    RouterModule.forRoot(appRoutes),
+    /*  AppRoutingModule, */
+RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     /*  EntrepriseModule, */
     SharedModule,
   ],

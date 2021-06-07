@@ -1,13 +1,13 @@
-.container{
-  position:absolute;
-  top:30%;
-  left:30%;
-  width:600px;          /* A toi de donner la bonne largeur */
-  height:450px;                 /* A toi de donner la bonne hauteur */
-  margin-left:-150px; /* -largeur/2 */
-  margin-top:-100px; /* -hauteur/2 */
+.container {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  width: 600px; /* A toi de donner la bonne largeur */
+  height: 450px; /* A toi de donner la bonne hauteur */
+  margin-left: -150px; /* -largeur/2 */
+  margin-top: -100px; /* -hauteur/2 */
 
-  border: 3px grey ;
+  border: 3px grey;
 }
 /* .view-organization {
   display: flex;
@@ -17,5 +17,3 @@
   display: flex;
   flex-direction: column;
 } */
-
-
