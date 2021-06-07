@@ -54,7 +54,7 @@
                 (email.touched || email.dirty)
               "
               class="form-text text-danger"
-              >e-mail is required *
+              >e-mail is required,
             </small>
             <small
               *ngIf="email && email.touched && email.invalid"
@@ -72,7 +72,7 @@
               "
               class="form-text text-danger"
             >
-              The candidat e-mail is required</small
+              The candidat CV is required</small
             >
           </div>
 
@@ -91,7 +91,14 @@
               Accept Ts & Cs is required
             </div>
           </div> -->
-          <div class="text-center">
+          <div class="text-center" id="deletePostuler">
+            <button
+              class="btn btn-secondary"
+              type="reset"
+              (click)="postulerForm.reset()"
+            >
+              supprimer
+            </button>
             <button
               class="btn btn-primary mr-1"
               id="postuleBtn"
@@ -99,13 +106,6 @@
               [disabled]="!postulerForm.valid"
             >
               postuler
-            </button>
-            <button
-              class="btn btn-secondary"
-              type="reset"
-              (click)="postulerForm.reset()"
-            >
-              supprimer
             </button>
           </div>
         </form>
