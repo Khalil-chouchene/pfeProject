@@ -6,6 +6,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { PostulerComponent } from './postuler/postuler.component';
 import { OffresListComponent } from './offres-list/offres-list.component';
+// primeng components
+import { TooltipModule } from 'primeng/tooltip';
 import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
 
 const candidateRoutes: Routes = [
@@ -29,6 +31,7 @@ const candidateRoutes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    TooltipModule,
     SharedModule,
     RouterModule.forChild(candidateRoutes),
   ],
