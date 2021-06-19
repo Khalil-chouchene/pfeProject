@@ -24,11 +24,14 @@ import { LoginComponent } from './entreprise-space/login/login.component';
 import { SignupComponent } from './entreprise-space/signup/signup.component';
 import { MyOffresComponent } from './offres-list/my-offres/my-offres.component';
 import { HomeComponent } from './candidate-space/home/home.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ProfilComponent } from './offres-list/profil/profil.component';
+import { TooltipModule } from 'primeng/tooltip';
+import { PostulerComponent } from './candidate-space/postuler/postuler.component';
 
 const appRoutes: Routes = [
-
   {
-     path: '',
+    path: '',
     loadChildren: () =>
       import('./candidate-space/candidate.module').then(
         (m) => m.CandidateModule
@@ -41,6 +44,11 @@ const appRoutes: Routes = [
         (m) => m.EntrepriseModule
       ),
   },
+
+  {
+    path: 'profiil',
+    component: ProfilComponent,
+  },
 ];
 
 @NgModule({
@@ -48,10 +56,11 @@ const appRoutes: Routes = [
     HttpClientModule,
     BrowserModule,
     /*  AppRoutingModule, */
-    /*  AppRoutingModule, */
-RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
+    RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     /*  EntrepriseModule, */
     SharedModule,
+    PdfViewerModule,
+    TooltipModule,
   ],
   declarations: [
     AppComponent,
@@ -70,7 +79,7 @@ RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     FormulaireOffreComponent,
     FormulaireOffreComponent,*/
     SignupComponent,
-    LoginComponent
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
+import { TooltipModule } from 'primeng/tooltip';
 
 import { AllCandidatsComponent } from '../offres-list/all-candidats/all-candidats.component';
 import { MyOffresComponent } from '../offres-list/my-offres/my-offres.component';
 import { ProfilComponent } from '../offres-list/profil/profil.component';
 import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 const entrepriseRoutes: Routes = [
   {
@@ -24,7 +26,7 @@ const entrepriseRoutes: Routes = [
   {
     path: 'myOffres/:id',
     component: AllCandidatsComponent,
-      children: [
+    children: [
       {
         path: ':id/profil',
         component: ProfilComponent,
@@ -35,6 +37,11 @@ const entrepriseRoutes: Routes = [
 
 @NgModule({
   declarations: [MyOffresComponent, AllCandidatsComponent, ProfilComponent],
-  imports: [CommonModule, RouterModule.forChild(entrepriseRoutes)],
+  imports: [
+    CommonModule,
+    TooltipModule,
+    RouterModule.forChild(entrepriseRoutes),
+    PdfViewerModule,
+  ],
 })
 export class EntrepriseModule {}

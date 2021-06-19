@@ -1,7 +1,7 @@
 <div class="container">
   <ol class="breadcrumb">
     <li>
-      <a href="index.html">Home</a> <span class="active"> / User access</span>
+      <a href="index.html">Home</a> <span class="active"> / Connection</span>
     </li>
   </ol>
 
@@ -9,24 +9,23 @@
     <!-- Article main content -->
     <article class="col-xs-12 maincontent">
       <header class="page-header">
-        <h1 class="page-title">Sign in</h1>
+        <h1 class="page-title">Se connecter</h1>
       </header>
 
       <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">
-            <h3 class="thin text-center">Sign in to your account</h3>
+            <h3 class="thin text-center">Connecter vers ton compte</h3>
             <p class="text-center text-muted">
-              Lorem ipsum dolor sit amet,
-              <a class="" routerLink="/signUp">Register</a> adipisicing elit.
-              Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur
-              omnis odio.
+              si vous n'avais pas déjà d'un compte
+              <a class="" routerLink="/signUp">créer</a>
             </p>
+
             <hr />
 
             <form [ formGroup ]="loginForms">
               <div class="top-margin">
-                <label>Username <span class="text-danger">*</span></label>
+                <label>Login <span class="text-danger">*</span></label>
                 <input
                   type="text"
                   class="form-control"
@@ -36,7 +35,7 @@
                 />
               </div>
               <div class="top-margin">
-                <label>Password <span class="text-danger">*</span></label>
+                <label>Mot de passe <span class="text-danger">*</span></label>
                 <input
                   type="password"
                   class="form-control"
@@ -50,10 +49,12 @@
 
               <div class="row">
                 <div class="col-lg-8">
-                  <b><a href="">Forgot password?</a></b>
+                  <b><a href="">Mot de passe oublié?</a></b>
                 </div>
                 <div class="col-lg-4 text-right">
-                  <button class="btn btn-action" type="submit">Sign in</button>
+                  <button class="btn btn-action" type="submit">
+                    Se connecter
+                  </button>
                 </div>
               </div>
             </form>

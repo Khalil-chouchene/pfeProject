@@ -5,14 +5,12 @@ import { HttpClient } from '@angular/common/http';
 import { Entreprise } from './candidat.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
 export class SignupComponent implements OnInit {
-
   signupForm = new FormGroup({
     EntrepriseName: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required),
@@ -44,8 +42,7 @@ export class SignupComponent implements OnInit {
     return this.signupForm.get('confirmPassword');
   }
 
-  constructor(private http: HttpClient, ) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {}
-
 }
