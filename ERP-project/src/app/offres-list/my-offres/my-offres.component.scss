@@ -64,6 +64,10 @@ table.table td a.delete {
 table.table td a.edit {
   color: #10c469;
 }
+table.table td a.masquer {
+  cursor: pointer;
+}
+
 table.table td i {
   font-size: 19px;
 }
@@ -163,4 +167,9 @@ table.table .avatar {
 .table-title .btn span {
   float: left;
   margin-top: 2px;
+}
+.actions {
+  display: flex;
+  align-items: center;
+  height: 80px;
 }

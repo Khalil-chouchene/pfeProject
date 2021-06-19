@@ -1,21 +1,3 @@
-<!-- <p>all-candidats works!</p>
-
-<div class="row" style="max-height: 200px;">
-  <div class="col-xs-12">
-
-    <a routerLink="/profil"
-       *ngFor="let candidate of candidates"
-       class="list-group-item list-group-item-action">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="list-group-item-heading"> {{ candidate?.name}}    {{ candidate?.lastName }} </h5>
-      </div>
-        <p >{{candidate?.titre}}</p>
-        <p>{{candidate?.adress}}</p>
-        <p>{{candidate?.tel}}</p>
-    </a>
-  </div>
-</div>
-<hr> -->
 <main role="main" class="view-organization screen">
   <div class="container container-view">
     <div class="container_header header"></div>
@@ -24,13 +6,11 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-6">
-              <h2 class="e2e-header-title">Candidates list</h2>
+              <h2 class="e2e-header-title">Liste des candidats</h2>
             </div>
             <div class="col-sm-6">
-              <a
-                class="btn btn-danger"
-                data-toggle="modal"
-                ><i class="fas fa-plus"></i> <span>Clear all</span></a
+              <a class="btn btn-danger" data-toggle="modal"
+                ><i class="clear"></i> <span>Clear all</span></a
               >
             </div>
           </div>
@@ -38,11 +18,11 @@
         <table class="table table-striped table-hover e2e-table-organization">
           <thead>
             <tr>
-              <th class="e2e-thead-name">First name</th>
-              <th class="e2e-thead-description">Last name</th>
+              <th class="e2e-thead-name">Nom</th>
+              <th class="e2e-thead-description">prénom</th>
               <th class="e2e-thead-titre">titre</th>
               <th class="e2e-thead-adress">adress</th>
-              <th class="e2e-thead-action">Action</th>
+              <th class="e2e-thead-action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -51,9 +31,14 @@
               *ngFor="let candidate of candidates; let index = index"
             >
               <td>
-                <a class="e2e-row-name"> {{ candidate.nom }}</a>
+                <a href="">
+                  <class class="e2e-row-name" style="cursor: pointer"></class>
+                  {{ candidate.name }}</a
+                >
               </td>
-              <td>{{ candidate.prenom }}</td>
+              <td>{{ candidate.LastName }}</td>
+              <td>{{ candidate.titre }}</td>
+              <td>{{ candidate.adress }}</td>
               <td>
                 <a
                   [routerLink]="[candidate.id, 'profil']"

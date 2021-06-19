@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../shared';
@@ -9,8 +9,30 @@ import { OffresListComponent } from './offres-list/offres-list.component';
 // primeng components
 import { TooltipModule } from 'primeng/tooltip';
 import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
+import { LoginComponent } from '../entreprise-space/login/login.component';
 
 const candidateRoutes: Routes = [
+  {
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'offres',
+    component: OffresListComponent,
+  },
+  {
+    path: 'offres/:id',
+    component: PostulerComponent,
+  },
+  { path: 'offres/login', component: LoginComponent },
+];
+
+/* const candidateRoutes: Routes = [
   {
     path: '',
     redirectTo: 'offres',
@@ -24,7 +46,8 @@ const candidateRoutes: Routes = [
     path: 'offres/:id',
     component: PostulerComponent,
   },
-];
+  { path: 'offres/login', component: LoginComponent },
+]; */
 
 @NgModule({
   declarations: [HomeComponent, OffresListComponent, PostulerComponent],

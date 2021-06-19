@@ -6,24 +6,24 @@
         <div class="table-title">
           <div class="row">
             <div class="col-sm-6">
-              <h2 class="e2e-header-title">Manage organizations</h2>
+              <h2 class="e2e-header-title">Mes offres</h2>
             </div>
             <div class="col-sm-6">
               <a
                 class="btn btn-success"
                 data-toggle="modal"
                 [routerLink]="['formulaire']"
-                ><i class="fas fa-plus"></i> <span>Add New</span></a
-              >
+                ><i class="fas fa-plus" pTooltip="ajouter une offre"></i>
+              </a>
             </div>
           </div>
         </div>
         <table class="table table-striped table-hover e2e-table-organization">
           <thead>
             <tr>
-              <th class="e2e-thead-name">Name</th>
-              <th class="e2e-thead-description">Description</th>
-              <th class="e2e-thead-action">Action</th>
+              <th class="thead-name">Poste</th>
+              <th class="thead-description">Description</th>
+              <th class="thead-action">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -35,21 +35,15 @@
                 <a class="e2e-row-name"> {{ myOffr.name }}</a>
               </td>
               <td>{{ myOffr.description }}</td>
-              <td>
-                <!--                 <a class="settings" title="detail"
-                  [routerLink]="['detail', organization.id]"
-                  >
-                    <i class="far fa-eye"></i>
-                  </a> -->
-                <a
-                  [routerLink]="[myOffr.id]"
-                  class="edit e2e-edit"
-                  title="Edit"
-                >
-                  <i class="far fa-edit">Psutuler</i>
+              <td class="actions">
+                <a class="masquer" pTooltip="masquer une offre">
+                  <i class="far fa-eye-slash"></i>
                 </a>
-                <a class="delete" title="Delete" (click)="deleteOrg(myOffr.id)">
-                  <i class="far fa-trash-alt"></i>
+                <a [routerLink]="[myOffr.id]" class="edit">
+                  <i class="far fa-edit" pTooltip="modifier une offre"></i>
+                </a>
+                <a class="delete" (click)="deleteOrg(myOffr.id)">
+                  <i class="far fa-trash-alt" pTooltip="supprimer offre"></i>
                 </a>
               </td>
             </tr>

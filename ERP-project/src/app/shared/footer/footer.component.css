@@ -105,3 +105,13 @@ footer {
   font-weight: bold;
   padding: 0 10px;
 }
+.fa-facebook {
+  margin-left: 90%;
+  padding-right: 10px;
+}
+.fa-twitter-square {
+  padding-right: 10px;
+}
+.copyright {
+  margin-left: 10px;
+}

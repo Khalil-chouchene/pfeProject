@@ -1,5 +1,71 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li>
+      <a href="index.html">Home</a> <span class="active"> / User access</span>
+    </li>
+  </ol>
+
+  <div class="row">
+    <!-- Article main content -->
+    <article class="col-xs-12 maincontent">
+      <header class="page-header">
+        <h1 class="page-title">Sign in</h1>
+      </header>
+
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class="thin text-center">Sign in to your account</h3>
+            <p class="text-center text-muted">
+              Lorem ipsum dolor sit amet,
+              <a class="" routerLink="/signUp">Register</a> adipisicing elit.
+              Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur
+              omnis odio.
+            </p>
+            <hr />
+
+            <form [ formGroup ]="loginForms">
+              <div class="top-margin">
+                <label>Username <span class="text-danger">*</span></label>
+                <input
+                  type="text"
+                  class="form-control"
+                  formControlName="userName"
+                  id="post"
+                  name="offreName"
+                />
+              </div>
+              <div class="top-margin">
+                <label>Password <span class="text-danger">*</span></label>
+                <input
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  id="post"
+                  name="password"
+                />
+              </div>
+
+              <hr />
+
+              <div class="row">
+                <div class="col-lg-8">
+                  <b><a href="">Forgot password?</a></b>
+                </div>
+                <div class="col-lg-4 text-right">
+                  <button class="btn btn-action" type="submit">Sign in</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </article>
+    <!-- /Article -->
+  </div>
+</div>
 <!-- main app container -->
-<div class="container container-view">
+<!-- <div class="container container-view">
   <main role="main" class="view-organization screen">
     <div class="card m-3">
       <h5 class="card-header">Postuler pour cette offre</h5>
@@ -76,21 +142,6 @@
             >
           </div>
 
-          <!-- <div class="form-group form-check">
-            <input
-              type="checkbox"
-              formControlName="acceptTerms"
-              id="acceptTerms"
-              class="form-check-input"
-              [ngClass]="{ 'is-invalid': submitted }"
-            />
-            <label for="acceptTerms" class="form-check-label"
-              >Accept Terms & Conditions</label
-            >
-            <div *ngIf="submitted" class="invalid-feedback">
-              Accept Ts & Cs is required
-            </div>
-          </div> -->
           <div class="text-center" id="deletePostuler">
             <button
               class="btn btn-secondary"
@@ -114,3 +165,4 @@
   </main>
   <div class="container_header header"></div>
 </div>
+ -->
