@@ -1,10 +1,38 @@
-<button type="button" class="btn btn-warning offre">
-  Consulter Les offres
-</button>
-<button type="button" class="btn btn-warning entreprise">
-  Espace entreprise
-</button>
+<div class="row container card-container align-items-center">
+  <div class="card col-4">
+    <img
+      class="card-img-top"
+      src="assets\images\cond-space.png"
+      alt="Espace candidat"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Espace candidat</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <a routerLink="/offres" class="btn btn-primary">Vers l'espace candidat</a>
+    </div>
+  </div>
 
+  <div class="card col-4">
+    <img
+      class="card-img-top"
+      src="assets\images\entreprise.png"
+      alt="Espace entreprise"
+    />
+    <div class="card-body">
+      <h5 class="card-title">Espace entreprise</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <a routerLink="/entreprise/myOffres" class="btn btn-primary"
+        >Vers l'espace entreprise</a
+      >
+    </div>
+  </div>
+</div>
 <!-- <div class="navbar navbar-inverse navbar-fixed-top headroom">
   <div class="container">
     <div class="navbar-header">

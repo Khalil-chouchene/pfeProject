@@ -29,7 +29,6 @@ const candidateRoutes: Routes = [
     path: 'offres/:id',
     component: PostulerComponent,
   },
-  { path: 'offres/login', component: LoginComponent },
 ];
 
 /* const candidateRoutes: Routes = [

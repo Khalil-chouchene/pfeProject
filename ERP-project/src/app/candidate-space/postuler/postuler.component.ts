@@ -17,13 +17,18 @@ export class PostulerComponent implements OnInit {
     candidatLastName: new FormControl('', [Validators.required]),
     email: new FormControl(null, [Validators.required, Validators.email]),
     cv: new FormControl('', [Validators.required]),
+    message: new FormControl(''),
   });
+  offreSubmited: boolean;
 
   get email() {
     return this.postulerForm.get('email');
   }
   get cv() {
     return this.postulerForm.get('cv');
+  }
+  get message() {
+    return this.postulerForm.get('message');
   }
   get candidatName() {
     return this.postulerForm.get('candidatName');
@@ -43,20 +48,20 @@ export class PostulerComponent implements OnInit {
   onPostuler() {
     this.postuled = {
       email: this.email.value,
-      cv: this.cv.value,
-      candidatName: this.candidatName.value,
-      candidatLastName: this.candidatLastName.value,
+      CV: this.cv.value,
+      message: this.message.value,
+      nom: this.candidatName.value,
+      prenom: this.candidatLastName.value,
     };
-    const confirmed = confirm('Are you sure !');
-    if (confirmed === true) {
-      // Send Http request
-      this.postulerService
-        .onPostule(this.postuled)
-        .subscribe((responseData) => {
-          console.log(responseData);
-        });
-      this.router.navigate(['offres']);
-    }
+
+    // Send Http request
+    this.postulerService.onPostule(this.postuled).subscribe((responseData) => {
+      this.offreSubmited = true;
+      setTimeout(() => {
+        this.offreSubmited = false;
+        this.router.navigate(['offres']);
+      }, 2000);
+    });
   }
 
   // convenience getter for easy access to form fields
