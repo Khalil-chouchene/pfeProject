@@ -1,69 +1,133 @@
-<div class="container">
-  <ol class="breadcrumb">
-    <li>
-      <a href="index.html">Home</a> <span class="active"> / User access</span>
-    </li>
-  </ol>
-
-  <div class="row">
-    <!-- Article main content -->
-    <article class="col-xs-12 maincontent">
-      <header class="page-header">
-        <h1 class="page-title">Sign in</h1>
-      </header>
-
-      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h3 class="thin text-center">Sign in to your account</h3>
-            <p class="text-center text-muted">
-              Lorem ipsum dolor sit amet,
-              <a class="" routerLink="/signUp">Register</a> adipisicing elit.
-              Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur
-              omnis odio.
-            </p>
-            <hr />
-
-            <form [ formGroup ]="loginForms">
-              <div class="top-margin">
-                <label>Username <span class="text-danger">*</span></label>
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="userName"
-                  id="post"
-                  name="offreName"
-                />
-              </div>
-              <div class="top-margin">
-                <label>Password <span class="text-danger">*</span></label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                  id="post"
-                  name="password"
-                />
-              </div>
-
-              <hr />
-
-              <div class="row">
-                <div class="col-lg-8">
-                  <b><a href="">Forgot password?</a></b>
-                </div>
-                <div class="col-lg-4 text-right">
-                  <button class="btn btn-action" type="submit">Sign in</button>
-                </div>
-              </div>
-            </form>
+<div class="card card-6 card-spacing" *ngIf="!offreSubmited">
+  <div class="card-body">
+    <form [formGroup]="postulerForm">
+      <div class="form-row">
+        <div class="name">First name <span class="required">*</span></div>
+        <div class="value">
+          <input
+            class="input--style-6"
+            type="text"
+            formControlName="candidatName"
+            name="candidatName"
+          />
+        </div>
+        <small
+          *ngIf="
+            candidatName.errors?.required &&
+            (candidatName.touched || candidatName.dirty)
+          "
+          class="form-text text-danger"
+          >The candidat first Name is required</small
+        >
+      </div>
+      <div class="form-row">
+        <div class="name">Last name <span class="required">*</span></div>
+        <div class="value">
+          <input
+            class="input--style-6"
+            type="text"
+            formControlName="candidatLastName"
+            name="candidatLastName"
+          />
+        </div>
+        <small
+          *ngIf="
+            candidatLastName.errors?.required &&
+            (candidatLastName.touched || candidatLastName.dirty)
+          "
+          class="form-text text-danger"
+          >The candidat Last Name is required</small
+        >
+      </div>
+      <div class="form-row">
+        <div class="name">Email address <span class="required">*</span></div>
+        <div class="value">
+          <div class="input-group">
+            <input
+              class="input--style-6"
+              type="email"
+              placeholder="example@email.com"
+              formControlName="email"
+              name="email"
+            />
+          </div>
+        </div>
+        <small
+          *ngIf="
+            email && email.errors?.required && (email.touched || email.dirty)
+          "
+          class="form-text text-danger"
+          >e-mail is required,
+        </small>
+        <small
+          *ngIf="email && email.touched && email.invalid"
+          class="form-text text-danger"
+          >email pattern should be like: xxxxx@xxxx.xxx
+        </small>
+      </div>
+      <div class="form-row">
+        <div class="name">Message</div>
+        <div class="value">
+          <div class="input-group">
+            <textarea
+              class="textarea--style-6"
+              name="message"
+              formControlName="message"
+              placeholder="Message sent to the employer"
+            ></textarea>
           </div>
         </div>
       </div>
-    </article>
-    <!-- /Article -->
+      <div class="form-row">
+        <div class="name">Upload CV <span class="required">*</span></div>
+        <div class="value">
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="file"
+              id="file"
+              name="
+              cv"
+              formControlName="cv"
+            />
+            <!-- <label class="label--file" for="file" *ngIf="!cv.errors?.required"
+              >Choose file</label
+            >
+            <span class="input-file__info" *ngIf="cv.errors?.required"
+              >No file chosen</span
+            > -->
+          </div>
+          <div class="label--desc">
+            Upload your CV/Resume or any other relevant file. Max file size 50
+            MB
+          </div>
+        </div>
+        <small
+          *ngIf="cv.errors?.required && (cv.touched || cv.dirty)"
+          class="form-text text-danger"
+        >
+          The candidat CV is required</small
+        >
+      </div>
+    </form>
+  </div>
+  <div class="card-footer">
+    <button
+      class="btn btn--radius-2 btn--blue-2"
+      (click)="onPostuler()"
+      [disabled]="!postulerForm.valid"
+    >
+      Send Application
+    </button>
   </div>
 </div>
+
+<div *ngIf="offreSubmited">
+  <h1 class="offer-succes text-center">your offer is submitted successfully</h1>
+</div>
+<!-- 
+  </div>
+</div> -->
 <!-- main app container -->
 <!-- <div class="container container-view">
   <main role="main" class="view-organization screen">

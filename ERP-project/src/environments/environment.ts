@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseApiPath: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com',
+  baseApiPath: 'http://localhost:8000',
+  /*  baseApiPath: 'https://erp-project-bd5d5-default-rtdb.firebaseio.com', */
 };
 
 /*

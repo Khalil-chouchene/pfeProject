@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.model';
@@ -17,19 +17,18 @@ export class CandidateService {
     return this.http.post<any>(this.basePath + '/posts.json', data);
   }
   onPostule(data: Offre): Observable<any> {
+    let header = new HttpHeaders({
+      token: '28ff7b5c287def73a8f04719227f37808073655c97fc1bd81097844ce021c681',
+    });
     // Send Http request
-    return this.http.post<any>(this.basePath + '/candidats.json', data);
+    return this.http.post<any>(this.basePath + '/condidatures/', data);
   }
   onsignUp(data: any): Observable<any> {
     // Send Http request
     return this.http.post<any>(this.basePath + '/candidats.json', data);
   }
   getOffreList(): Observable<any> {
-    return of([
-      { id: 1, name: 'Cartage solution', description: ' monsef ' },
-      { id: 2, name: 'ali', description: ' monsef ' },
-      { id: 3, name: 'ali', description: ' monsef ' },
-    ]);
+    return this.http.get<any>(this.basePath + '/publicoffres');
     /*  return this.http.get<any>(this.basePath + '/posts.json'); */
   }
 }
