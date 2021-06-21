@@ -31,7 +31,7 @@
               *ngFor="let candidate of candidates; let index = index"
             >
               <td>
-                <a href="">
+                <a [routerLink]="[candidate.id, 'profil']">
                   <class class="e2e-row-name" style="cursor: pointer"></class>
                   {{ candidate.name }}</a
                 >
@@ -40,11 +40,7 @@
               <td>{{ candidate.titre }}</td>
               <td>{{ candidate.adress }}</td>
               <td>
-                <a
-                  [routerLink]="[candidate.id, 'profil']"
-                  class="edit e2e-edit"
-                  title="Edit"
-                >
+                <a class="edit e2e-edit" title="Edit">
                   <i class="far fa-edit"></i>
                 </a>
                 <a

@@ -2,7 +2,7 @@
   <div class="card-body">
     <form [formGroup]="postulerForm">
       <div class="form-row">
-        <div class="name">First name <span class="required">*</span></div>
+        <div class="name">Nom <span class="required">*</span></div>
         <div class="value">
           <input
             class="input--style-6"
@@ -17,11 +17,11 @@
             (candidatName.touched || candidatName.dirty)
           "
           class="form-text text-danger"
-          >The candidat first Name is required</small
+          >Nom est obligatoire</small
         >
       </div>
       <div class="form-row">
-        <div class="name">Last name <span class="required">*</span></div>
+        <div class="name">Prénom <span class="required">*</span></div>
         <div class="value">
           <input
             class="input--style-6"
@@ -36,11 +36,11 @@
             (candidatLastName.touched || candidatLastName.dirty)
           "
           class="form-text text-danger"
-          >The candidat Last Name is required</small
+          >prénom obligatoire</small
         >
       </div>
       <div class="form-row">
-        <div class="name">Email address <span class="required">*</span></div>
+        <div class="name">Address email <span class="required">*</span></div>
         <div class="value">
           <div class="input-group">
             <input
@@ -57,12 +57,12 @@
             email && email.errors?.required && (email.touched || email.dirty)
           "
           class="form-text text-danger"
-          >e-mail is required,
+          >e-mail est obligatoire,
         </small>
         <small
           *ngIf="email && email.touched && email.invalid"
           class="form-text text-danger"
-          >email pattern should be like: xxxxx@xxxx.xxx
+          >format email demandé : xxxxx@xxxx.xxx
         </small>
       </div>
       <div class="form-row">
@@ -117,7 +117,7 @@
       (click)="onPostuler()"
       [disabled]="!postulerForm.valid"
     >
-      Send Application
+      Postuler
     </button>
   </div>
 </div>
@@ -125,7 +125,7 @@
 <div *ngIf="offreSubmited">
   <h1 class="offer-succes text-center">your offer is submitted successfully</h1>
 </div>
-<!-- 
+<!--
   </div>
 </div> -->
 <!-- main app container -->
