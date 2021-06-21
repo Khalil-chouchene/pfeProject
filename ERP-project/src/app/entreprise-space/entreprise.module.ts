@@ -9,7 +9,6 @@ import { ProfilComponent } from './profil/profil.component';
 import { FormulaireOffreComponent } from './formulaire-offre/formulaire-offre.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginComponent } from './login/login.component';
 
 const entrepriseRoutes: Routes = [
   {
