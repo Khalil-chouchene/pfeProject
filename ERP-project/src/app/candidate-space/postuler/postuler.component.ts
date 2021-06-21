@@ -11,6 +11,7 @@ import { CandidateService } from 'src/app/shared/services/candidate.service';
 export class PostulerComponent implements OnInit {
   submitted = false;
   postuled: any;
+  publicOffres: any;
 
   postulerForm = new FormGroup({
     candidatName: new FormControl('', [Validators.required]),
@@ -19,7 +20,7 @@ export class PostulerComponent implements OnInit {
     cv: new FormControl('', [Validators.required]),
     message: new FormControl(''),
   });
-  offreSubmited: boolean;
+  offreSubmited: boolean; // pour controler button submit
 
   get email() {
     return this.postulerForm.get('email');

@@ -5,7 +5,8 @@
       <div class="container">
         <h1>Creation d'une offres</h1>
         <br />
-        <form>
+
+        <form [formGroup]="createOffreForm">
           <fieldset>
             <div class="form-group">
               <label for="post">Entrez le nom du poste</label>
@@ -23,7 +24,7 @@
                 type="text"
                 class="form-control"
                 id="post"
-                name="offreName"
+                name="societeName"
                 placeholder="Nom société, Adress"
               />
             </div>
@@ -43,7 +44,7 @@
             <button
               class="btn btn-primary"
               type="submit"
-              (click)="onCreatePost(offrePost)"
+              (click)="onCreatePost()"
             >
               Envoyer
             </button>

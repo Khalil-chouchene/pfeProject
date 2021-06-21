@@ -6,8 +6,9 @@ import { TooltipModule } from 'primeng/tooltip';
 import { AllCandidatsComponent } from '../offres-list/all-candidats/all-candidats.component';
 import { MyOffresComponent } from '../offres-list/my-offres/my-offres.component';
 import { ProfilComponent } from '../offres-list/profil/profil.component';
-import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
+import { FormulaireOffreComponent } from './formulaire-offre/formulaire-offre.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const entrepriseRoutes: Routes = [
   {
@@ -36,10 +37,16 @@ const entrepriseRoutes: Routes = [
 ];
 
 @NgModule({
-  declarations: [MyOffresComponent, AllCandidatsComponent, ProfilComponent],
+  declarations: [
+    MyOffresComponent,
+    FormulaireOffreComponent,
+    AllCandidatsComponent,
+    ProfilComponent,
+  ],
   imports: [
     CommonModule,
     TooltipModule,
+    ReactiveFormsModule,
     RouterModule.forChild(entrepriseRoutes),
     PdfViewerModule,
   ],
