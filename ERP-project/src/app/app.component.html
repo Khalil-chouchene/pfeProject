@@ -1,19 +1,11 @@
-<div>
+<div *ngIf="!loginSpace">
   <app-header></app-header>
 </div>
 
-<div class="container mb-5 mt-5 body-region">
-  <div class="row">
-    <div class="col-md-12">
-      <div
-        class="panel panel-default"
-        [ngStyle]="{ 'background-image': './assets/images/bg_header.jpg' }"
-      ></div>
-
-      <router-outlet></router-outlet>
-    </div>
-  </div>
+<div class="body-region">
+  <router-outlet></router-outlet>
 </div>
-<div class="footer">
+
+<div class="footer" *ngIf="!loginSpace">
   <app-footer></app-footer>
 </div>

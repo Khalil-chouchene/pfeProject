@@ -39,11 +39,16 @@
 
       </div> -->
     <div>
-      <ul class="navbar-nav navbar-right">
+      <ul class="navbar-nav navbar-right" *ngIf="isEntrepriseSpace">
         <li class="active">
-          <a type="button" class="btn btn-dark" routerLink="/loginIn  "
-            >Logout</a
-          >
+          <a
+            type="button"
+            class="btn btn-dark"
+            routerLink="/"
+            (click)="logout()"
+            >Logout
+          </a>
+          <ngx-avatar [name]="user$.user.username"></ngx-avatar>
         </li>
       </ul>
     </div>
