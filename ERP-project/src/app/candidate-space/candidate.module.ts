@@ -8,7 +8,6 @@ import { PostulerComponent } from './postuler/postuler.component';
 import { OffresListComponent } from './offres-list/offres-list.component';
 // primeng components
 import { TooltipModule } from 'primeng/tooltip';
-import { FormulaireOffreComponent } from '../offres-list/formulaire-offre/formulaire-offre.component';
 import { LoginComponent } from '../entreprise-space/login/login.component';
 
 const candidateRoutes: Routes = [

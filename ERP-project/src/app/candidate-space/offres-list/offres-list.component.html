@@ -20,12 +20,12 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let offre of offresTab; let index = index">
+            <tr *ngFor="let offre of offres; let index = index">
               <td>
-                <a class="e2e-row-name"> {{ offre.name }}</a>
+                <a class="e2e-row-name"> {{ offre.titre }}</a>
               </td>
               <td>{{ offre.description }}</td>
-              <td>{{ offre.society }}</td>
+              <td>{{ offre.entreprise }}</td>
               <td>
                 <a [routerLink]="[offre.id]" class="edit">
                   <button type="button" class="btn btn-success">

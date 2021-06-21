@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import { Offre } from 'src/app/offres-list/formulaire-offre/offreForm.model';
 import { CandidateService } from '../../shared/services/candidate.service';
 import { ButtonModule } from 'primeng/button';
 
