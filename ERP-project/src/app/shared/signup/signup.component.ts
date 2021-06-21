@@ -10,7 +10,8 @@ import { AccountService } from '../services/account.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent implements OnInit {
+export class SignupComponent {
+  signUpError: any;
   signupForm = new FormGroup({
     entrepriseName: new FormControl('', Validators.required),
     password: new FormControl('', [
@@ -43,22 +44,28 @@ export class SignupComponent implements OnInit {
     private accountService: AccountService
   ) {}
 
-  ngOnInit(): void {}
-
   register() {
     // stop here if form is invalid
     if (this.signupForm.invalid) {
       return;
     }
-
+    const dataTosend = {
+      ...this.signupForm.value,
+      username: this.entrepriseName.value,
+    };
     this.accountService
-      .register(this.signupForm.value)
+      .register(dataTosend)
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['../login'], { relativeTo: this.route });
+          this.router.navigate(['/entreprise'], { relativeTo: this.route });
         },
-        error: (error) => {},
+        error: (error) => {
+          debugger;
+          if (error.error.username[0]) {
+            this.signUpError = error.error.username[0];
+          }
+        },
       });
   }
 }

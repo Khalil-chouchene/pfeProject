@@ -15,7 +15,6 @@ export class OffresListComponent implements OnInit {
   ngOnInit(): void {
     this.candidatService.getOffreList().subscribe((offresList) => {
       this.offres = offresList;
-      console.log(this.offres);
     });
   }
 }

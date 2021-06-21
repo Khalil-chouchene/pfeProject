@@ -8,7 +8,8 @@ import { MyOffresComponent } from './my-offres/my-offres.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FormulaireOffreComponent } from './formulaire-offre/formulaire-offre.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 const entrepriseRoutes: Routes = [
   {
@@ -45,6 +46,8 @@ const entrepriseRoutes: Routes = [
   imports: [
     CommonModule,
     TooltipModule,
+    FormsModule,
+    Ng2SearchPipeModule,
     ReactiveFormsModule,
     RouterModule.forChild(entrepriseRoutes),
     PdfViewerModule,

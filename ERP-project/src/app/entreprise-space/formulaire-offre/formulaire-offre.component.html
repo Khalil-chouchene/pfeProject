@@ -3,9 +3,9 @@
     <div class="container_header header"></div>
     <div class="container_content">
       <div class="container">
-        <h1>Creation d'une offres</h1>
+        <h1 *ngIf="modifMode === false">Creation d'une offres</h1>
+        <h1 *ngIf="modifMode === true">Modification d'une offres</h1>
         <br />
-
         <form [formGroup]="createOffreForm">
           <fieldset>
             <div class="form-group">
@@ -13,19 +13,19 @@
               <input
                 type="text"
                 class="form-control"
-                id="post"
-                name="offreName"
+                name="titre"
+                formControlName="titre"
               />
             </div>
             <br />
             <div class="form-group">
-              <label for="post">Entrez le nom et l'adresse du société </label>
+              <label for="post">Entrez le nombre du postes demander </label>
               <input
-                type="text"
+                type="number"
                 class="form-control"
-                id="post"
-                name="societeName"
-                placeholder="Nom société, Adress"
+                formControlName="nb_poste"
+                name="nb_poste"
+                placeholder="donner le nombre demander"
               />
             </div>
             <br />
@@ -34,10 +34,10 @@
               <label for="bio">Description</label>
               <textarea
                 class="form-control"
-                id="desc"
                 rows="3"
-                placeholder="décrire la poste"
-                name="offreDesc"
+                formControlName="description"
+                placeholder="décrire le poste"
+                name="description"
               ></textarea>
             </div>
             <br />

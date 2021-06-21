@@ -4,20 +4,25 @@
     <div class="container_content">
       <div class="table-wrapper">
         <div class="table-title">
-          <div class="row">
-            <div class="col-sm-6">
-              <h2 class="e2e-header-title">Mes offres</h2>
-            </div>
-            <div class="col-sm-6">
-              <a
-                class="btn btn-success"
-                data-toggle="modal"
-                [routerLink]="['formulaire']"
-                ><i class="fas fa-plus" pTooltip="ajouter une offre"></i>
-              </a>
-            </div>
+          <div class="row header-container">
+            <h2 class="header-title">Mes offres</h2>
+            <input
+              class="form-control"
+              type="text"
+              name="search"
+              [(ngModel)]="searchText"
+              autocomplete="off"
+              placeholder="&#61442; search for an offer"
+            />
+            <a
+              class="btn btn-success add-offre"
+              data-toggle="modal"
+              [routerLink]="['formulaire']"
+              ><i class="fas fa-plus" pTooltip="ajouter une offre"></i>
+            </a>
           </div>
         </div>
+
         <table class="table table-striped table-hover e2e-table-organization">
           <thead>
             <tr>
@@ -29,18 +34,27 @@
           <tbody>
             <tr
               class="e2e-rows-organizations"
-              *ngFor="let myOffr of offresTab; let index = index"
+              *ngFor="let myOffr of offresTab | filter: searchText"
             >
               <td>
-                <a class="e2e-row-name"> {{ myOffr.name }}</a>
+                <a
+                  [routerLink]="[myOffr.id]"
+                  pTooltip="Consulter la liste des candidats de cette offre"
+                >
+                  {{ myOffr.titre }}</a
+                >
               </td>
               <td>{{ myOffr.description }}</td>
               <td class="actions">
                 <a class="masquer" pTooltip="masquer une offre">
                   <i class="far fa-eye-slash"></i>
                 </a>
-                <a [routerLink]="[myOffr.id]" class="edit">
-                  <i class="far fa-edit" pTooltip="modifier une offre"></i>
+                <a class="edit">
+                  <i
+                    class="far fa-edit"
+                    pTooltip="modifier l'offre de {{ myOffr.titre }}"
+                    [routerLink]="['formulaire', myOffr]"
+                  ></i>
                 </a>
                 <a class="delete" (click)="deleteOrg(myOffr.id)">
                   <i class="far fa-trash-alt" pTooltip="supprimer offre"></i>

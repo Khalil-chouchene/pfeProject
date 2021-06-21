@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { EntrepriseService } from 'src/app/shared/services/entreprise.service';
 
 @Component({
   selector: 'app-my-offres',
@@ -6,35 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./my-offres.component.scss'],
 })
 export class MyOffresComponent implements OnInit {
-  offresTab = [
-    {
-      id: 1,
-      name: 'Concepteur UML',
-      description: ' une expérience de 2 années ',
-    },
-    {
-      id: 2,
-      name: 'Software engineer',
-      description: ' UI/UX ',
-    },
-    {
-      id: 3,
-      name: ' marketing',
-      description: ' 2 years of exprinece ',
-    },
-    {
-      id: 4,
-      name: ' Développeur mobile',
-      description: ' Android ',
-    },
-    {
-      id: 5,
-      name: 'Comptabilité',
-      description: '   ',
-    },
-  ];
+  searchText;
+  offresTab;
 
-  constructor() {}
+  constructor(private entrepriseService: EntrepriseService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.entrepriseService.getOffreList().subscribe((offresList) => {
+      this.offresTab = offresList;
+    });
+  }
 }
