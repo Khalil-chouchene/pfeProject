@@ -1,4 +1,12 @@
 import { Component } from '@angular/core';
+import {
+  GuardsCheckEnd,
+  GuardsCheckStart,
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RoutesRecognized,
+} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +16,25 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'ERP-project4';
   loadedFeature = 'offre';
+  loginSpace: boolean;
+  constructor(private route: Router) {}
 
+  ngOnInit() {
+    this.route.events.subscribe(
+      (
+        val:
+          | NavigationEnd
+          | GuardsCheckStart
+          | NavigationStart
+          | RoutesRecognized
+          | GuardsCheckEnd
+      ) => {
+        if (val && val.url) {
+          this.loginSpace = val.url.includes('login');
+        }
+      }
+    );
+  }
   // tslint:disable-next-line:typedef
   onNavigate(feature: string) {
     this.loadedFeature = feature;

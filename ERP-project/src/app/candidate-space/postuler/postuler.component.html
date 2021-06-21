@@ -1,148 +1,18 @@
-<div class="card card-6 card-spacing" *ngIf="!offreSubmited">
-  <div class="card-body">
-    <form [formGroup]="postulerForm">
-      <div class="form-row">
-        <div class="name">First name <span class="required">*</span></div>
-        <div class="value">
-          <input
-            class="input--style-6"
-            type="text"
-            formControlName="candidatName"
-            name="candidatName"
-          />
-        </div>
-        <small
-          *ngIf="
-            candidatName.errors?.required &&
-            (candidatName.touched || candidatName.dirty)
-          "
-          class="form-text text-danger"
-          >The candidat first Name is required</small
-        >
-      </div>
-      <div class="form-row">
-        <div class="name">Last name <span class="required">*</span></div>
-        <div class="value">
-          <input
-            class="input--style-6"
-            type="text"
-            formControlName="candidatLastName"
-            name="candidatLastName"
-          />
-        </div>
-        <small
-          *ngIf="
-            candidatLastName.errors?.required &&
-            (candidatLastName.touched || candidatLastName.dirty)
-          "
-          class="form-text text-danger"
-          >The candidat Last Name is required</small
-        >
-      </div>
-      <div class="form-row">
-        <div class="name">Email address <span class="required">*</span></div>
-        <div class="value">
-          <div class="input-group">
-            <input
-              class="input--style-6"
-              type="email"
-              placeholder="example@email.com"
-              formControlName="email"
-              name="email"
-            />
-          </div>
-        </div>
-        <small
-          *ngIf="
-            email && email.errors?.required && (email.touched || email.dirty)
-          "
-          class="form-text text-danger"
-          >e-mail is required,
-        </small>
-        <small
-          *ngIf="email && email.touched && email.invalid"
-          class="form-text text-danger"
-          >email pattern should be like: xxxxx@xxxx.xxx
-        </small>
-      </div>
-      <div class="form-row">
-        <div class="name">Message</div>
-        <div class="value">
-          <div class="input-group">
-            <textarea
-              class="textarea--style-6"
-              name="message"
-              formControlName="message"
-              placeholder="Message sent to the employer"
-            ></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="name">Upload CV <span class="required">*</span></div>
-        <div class="value">
-          <div class="input-group">
-            <input
-              class="form-control"
-              type="file"
-              id="file"
-              name="
-              cv"
-              formControlName="cv"
-            />
-            <!-- <label class="label--file" for="file" *ngIf="!cv.errors?.required"
-              >Choose file</label
-            >
-            <span class="input-file__info" *ngIf="cv.errors?.required"
-              >No file chosen</span
-            > -->
-          </div>
-          <div class="label--desc">
-            Upload your CV/Resume or any other relevant file. Max file size 50
-            MB
-          </div>
-        </div>
-        <small
-          *ngIf="cv.errors?.required && (cv.touched || cv.dirty)"
-          class="form-text text-danger"
-        >
-          The candidat CV is required</small
-        >
-      </div>
-    </form>
-  </div>
-  <div class="card-footer">
-    <button
-      class="btn btn--radius-2 btn--blue-2"
-      (click)="onPostuler()"
-      [disabled]="!postulerForm.valid"
-    >
-      Send Application
-    </button>
-  </div>
-</div>
-
-<div *ngIf="offreSubmited">
-  <h1 class="offer-succes text-center">your offer is submitted successfully</h1>
-</div>
-<!-- 
-  </div>
-</div> -->
-<!-- main app container -->
-<!-- <div class="container container-view">
-  <main role="main" class="view-organization screen">
-    <div class="card m-3">
-      <h5 class="card-header">Postuler pour cette offre</h5>
+<div class="container mt-5">
+  <div class="row">
+    <div class="card card-6 card-spacing" *ngIf="!offreSubmited">
       <div class="card-body">
         <form [formGroup]="postulerForm">
           <div class="form-row">
-            <label>Nom <span class="required">*</span></label>
-            <input
-              type="text"
-              formControlName="candidatName"
-              class="form-control"
-              name="candidatName"
-            />
+            <div class="name">First name <span class="required">*</span></div>
+            <div class="value">
+              <input
+                class="input--style-6"
+                type="text"
+                formControlName="candidatName"
+                name="candidatName"
+              />
+            </div>
             <small
               *ngIf="
                 candidatName.errors?.required &&
@@ -153,13 +23,15 @@
             >
           </div>
           <div class="form-row">
-            <label>prénom <span class="required">*</span></label>
-            <input
-              type="text"
-              formControlName="candidatLastName"
-              class="form-control"
-              name="candidatLastName"
-            />
+            <div class="name">Last name <span class="required">*</span></div>
+            <div class="value">
+              <input
+                class="input--style-6"
+                type="text"
+                formControlName="candidatLastName"
+                name="candidatLastName"
+              />
+            </div>
             <small
               *ngIf="
                 candidatLastName.errors?.required &&
@@ -170,13 +42,20 @@
             >
           </div>
           <div class="form-row">
-            <label>Email <span class="required">*</span></label>
-            <input
-              type="text"
-              formControlName="email"
-              class="form-control"
-              name="email"
-            />
+            <div class="name">
+              Email address <span class="required">*</span>
+            </div>
+            <div class="value">
+              <div class="input-group">
+                <input
+                  class="input--style-6"
+                  type="email"
+                  placeholder="example@email.com"
+                  formControlName="email"
+                  name="email"
+                />
+              </div>
+            </div>
             <small
               *ngIf="
                 email &&
@@ -192,41 +71,68 @@
               >email pattern should be like: xxxxx@xxxx.xxx
             </small>
           </div>
-
           <div class="form-row">
-            <label>CV <span class="required">*</span></label>
-            <input class="form-control" type="file" formControlName="cv" />
+            <div class="name">Message</div>
+            <div class="value">
+              <div class="input-group">
+                <textarea
+                  class="textarea--style-6"
+                  name="message"
+                  formControlName="message"
+                  placeholder="Message sent to the employer"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="name">Upload CV <span class="required">*</span></div>
+            <div class="value">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="file"
+                  id="file"
+                  (change)="onFileChange($event)"
+                  name="
+              cv"
+                  formControlName="cv"
+                />
+                <!-- <label class="label--file" for="file" *ngIf="!cv.errors?.required"
+              >Choose file</label
+            >
+            <span class="input-file__info" *ngIf="cv.errors?.required"
+              >No file chosen</span
+            > -->
+              </div>
+              <div class="label--desc">
+                Upload your CV/Resume or any other relevant file. Max file size
+                50 MB
+              </div>
+            </div>
             <small
-              *ngIf="
-                (cv.errors?.required && (cv.touched || cv.dirty)) || cv.invalid
-              "
+              *ngIf="cv.errors?.required && (cv.touched || cv.dirty)"
               class="form-text text-danger"
             >
               The candidat CV is required</small
             >
           </div>
-
-          <div class="text-center" id="deletePostuler">
-            <button
-              class="btn btn-secondary"
-              type="reset"
-              (click)="postulerForm.reset()"
-            >
-              supprimer
-            </button>
-            <button
-              class="btn btn-primary mr-1"
-              id="postuleBtn"
-              (click)="onPostuler()"
-              [disabled]="!postulerForm.valid"
-            >
-              postuler
-            </button>
-          </div>
         </form>
       </div>
+      <div class="card-footer">
+        <button
+          class="btn btn--radius-2 btn--blue-2"
+          (click)="onPostuler()"
+          [disabled]="!postulerForm.valid"
+        >
+          Send Application
+        </button>
+      </div>
     </div>
-  </main>
-  <div class="container_header header"></div>
+
+    <div *ngIf="offreSubmited">
+      <h1 class="offer-succes text-center">
+        your offer is submitted successfully
+      </h1>
+    </div>
+  </div>
 </div>
- -->

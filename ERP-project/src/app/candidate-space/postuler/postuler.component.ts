@@ -47,16 +47,17 @@ export class PostulerComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onPostuler() {
-    this.postuled = {
-      email: this.email.value,
-      CV: this.cv.value,
-      message: this.message.value,
-      nom: this.candidatName.value,
-      prenom: this.candidatLastName.value,
-    };
+    const formData = new FormData();
+
+    formData.append('CV', this.cv.value);
+    formData.append('offre', this.router.url.split('/')[2]);
+    formData.append('email', this.email.value);
+    formData.append('message', this.message.value);
+    formData.append('nom', this.candidatName.value);
+    formData.append('prenom', this.candidatLastName.value);
 
     // Send Http request
-    this.postulerService.onPostule(this.postuled).subscribe((responseData) => {
+    this.postulerService.onPostule(formData).subscribe((responseData) => {
       this.offreSubmited = true;
       setTimeout(() => {
         this.offreSubmited = false;
@@ -70,17 +71,13 @@ export class PostulerComponent implements OnInit {
     return this.postulerForm.controls;
   }
 
-  onSubmit() {
-    this.submitted = true;
-    // stop here if form is invalid
-    if (this.postulerForm.invalid) {
-      return;
+  onFileChange(event) {
+    if (event.target.files.length > 0) {
+      const file = event.target.files[0];
+      this.postulerForm.patchValue({
+        cv: file,
+      });
     }
-
-    // display form values on success
-    alert(
-      'SUCCESS!! :-)\n\n' + JSON.stringify(this.postulerForm.value, null, 4)
-    );
   }
 
   onReset() {

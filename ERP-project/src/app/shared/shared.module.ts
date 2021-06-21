@@ -6,6 +6,7 @@ import { SideBarComponent } from './side-bar/side-bar.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CandidateService } from './services/candidate.service';
 import { RouterModule } from '@angular/router';
+import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { RouterModule } from '@angular/router';
     SideBarComponent,
     NotFoundComponent,
   ],
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, AvatarModule],
   exports: [
     FooterComponent,
     HeaderComponent,

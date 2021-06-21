@@ -20,10 +20,7 @@ export class CandidateService {
     // Send Http request
     return this.http.post<any>(this.basePath + '/offres/', data);
   }
-  onPostule(data: any): Observable<any> {
-    let header = new HttpHeaders({
-      token: '28ff7b5c287def73a8f04719227f37808073655c97fc1bd81097844ce021c681',
-    });
+  onPostule(data): Observable<any> {
     // Send Http request
     return this.http.post<any>(this.basePath + '/condidatures/', data);
   }

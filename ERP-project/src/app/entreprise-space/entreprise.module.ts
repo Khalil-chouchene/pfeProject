@@ -3,12 +3,13 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { TooltipModule } from 'primeng/tooltip';
 
-import { AllCandidatsComponent } from '../offres-list/all-candidats/all-candidats.component';
-import { MyOffresComponent } from '../offres-list/my-offres/my-offres.component';
-import { ProfilComponent } from '../offres-list/profil/profil.component';
+import { AllCandidatsComponent } from './all-candidats/all-candidats.component';
+import { MyOffresComponent } from './my-offres/my-offres.component';
+import { ProfilComponent } from './profil/profil.component';
 import { FormulaireOffreComponent } from './formulaire-offre/formulaire-offre.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 const entrepriseRoutes: Routes = [
   {
@@ -27,20 +28,19 @@ const entrepriseRoutes: Routes = [
   {
     path: 'myOffres/:id',
     component: AllCandidatsComponent,
-    children: [
-      {
-        path: ':id/profil',
-        component: ProfilComponent,
-      },
-    ],
+  },
+  {
+    path: 'myOffres/:id/profil/:profilId',
+    component: ProfilComponent,
   },
 ];
 
 @NgModule({
   declarations: [
-    MyOffresComponent,
     FormulaireOffreComponent,
+    ProfilComponent,
     AllCandidatsComponent,
+    MyOffresComponent,
     ProfilComponent,
   ],
   imports: [
@@ -50,5 +50,6 @@ const entrepriseRoutes: Routes = [
     RouterModule.forChild(entrepriseRoutes),
     PdfViewerModule,
   ],
+  exports: [],
 })
 export class EntrepriseModule {}

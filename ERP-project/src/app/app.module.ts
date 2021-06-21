@@ -8,8 +8,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './entreprise-space/login/login.component';
 import { SignupComponent } from './entreprise-space/signup/signup.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { ProfilComponent } from './offres-list/profil/profil.component';
 import { TooltipModule } from 'primeng/tooltip';
+import { AuthGuard } from './shared/services/authGuard';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -25,11 +26,11 @@ const appRoutes: Routes = [
       import('./entreprise-space/entreprise.module').then(
         (m) => m.EntrepriseModule
       ),
+    canActivate: [AuthGuard],
   },
-
   {
-    path: 'profiil',
-    component: ProfilComponent,
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
@@ -41,29 +42,12 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
     /*  EntrepriseModule, */
     SharedModule,
+    ReactiveFormsModule,
     PdfViewerModule,
     TooltipModule,
   ],
-  declarations: [
-    AppComponent,
-    /*  OffresListComponent,
-    DefaultLayoutComponent,
-    BackendLayoutComponent,
-    AllCandidatsComponent,
-    AcceptedCandidatsComponent,
-    HiredCandidatsComponent,
-    ProfilComponent,
-    HomeComponent,
-    PostulerComponent,
-    HeaderComponent,
-    FooterComponent,
-    SideBarComponent,
-    FormulaireOffreComponent,
-    FormulaireOffreComponent,*/
-    SignupComponent,
-    LoginComponent,
-  ],
-  providers: [],
+  declarations: [AppComponent, SignupComponent, LoginComponent],
+  providers: [AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

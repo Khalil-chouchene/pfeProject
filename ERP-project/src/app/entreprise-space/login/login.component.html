@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
   <ol class="breadcrumb">
     <li>
       <a href="index.html">Home</a> <span class="active"> / Connection</span>
@@ -6,7 +6,7 @@
   </ol>
 
   <div class="row">
-    <!-- Article main content -->
+   
     <article class="col-xs-12 maincontent">
       <header class="page-header">
         <h1 class="page-title">Se connecter</h1>
@@ -23,7 +23,7 @@
 
             <hr />
 
-            <form [ formGroup ]="loginForms">
+            <form [formGroup]="loginForms">
               <div class="top-margin">
                 <label>Login <span class="text-danger">*</span></label>
                 <input
@@ -62,6 +62,62 @@
         </div>
       </div>
     </article>
-    <!-- /Article -->
+  </div>
+</div> -->
+
+<div class="limiter">
+  <div
+    class="container-login100"
+    style="background-image: url('assets/images/bg-01.jpg')"
+  >
+    <div class="wrap-login100">
+      <form [formGroup]="loginForms" class="login100-form validate-form">
+        <span class="login100-form-title p-b-34 p-t-27"> Log in </span>
+
+        <div
+          class="wrap-input100 validate-input"
+          data-validate="Enter username"
+        >
+          <input
+            class="input100"
+            type="text"
+            formControlName="username"
+            name="username"
+            placeholder="Username"
+          />
+          <i class="focus-input100"> </i>
+        </div>
+
+        <div
+          class="wrap-input100 validate-input"
+          data-validate="Enter password"
+        >
+          <input
+            class="input100"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+            name="password"
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="contact100-form-checkbox">
+          <input
+            class="input-checkbox100"
+            id="ckb1"
+            type="checkbox"
+            name="remember-me"
+          />
+          <label class="label-checkbox100" for="ckb1"> Remember me </label>
+        </div>
+        <small *ngIf="error" class="form-text text-danger"
+          >please check your credentials
+        </small>
+        <div class="container-login100-form-btn">
+          <button class="login100-form-btn" (click)="login()">Login</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
