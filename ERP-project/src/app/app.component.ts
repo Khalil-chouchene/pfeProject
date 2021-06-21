@@ -30,13 +30,10 @@ export class AppComponent {
           | GuardsCheckEnd
       ) => {
         if (val && val.url) {
-          this.loginSpace = val.url.includes('login');
+          this.loginSpace =
+            val.url.includes('login') || val.url.includes('register');
         }
       }
     );
-  }
-  // tslint:disable-next-line:typedef
-  onNavigate(feature: string) {
-    this.loadedFeature = feature;
   }
 }

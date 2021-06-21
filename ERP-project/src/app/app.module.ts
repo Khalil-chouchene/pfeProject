@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './entreprise-space/login/login.component';
-import { SignupComponent } from './entreprise-space/signup/signup.component';
+import { LoginComponent } from './shared/login/login.component';
+import { SignupComponent } from './shared/signup/signup.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { TooltipModule } from 'primeng/tooltip';
 import { AuthGuard } from './shared/services/authGuard';
@@ -32,19 +32,20 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
+
+  {
+    path: 'register',
+    component: SignupComponent,
+  },
 ];
 
 @NgModule({
   imports: [
     HttpClientModule,
     BrowserModule,
-    /*  AppRoutingModule, */
     RouterModule.forRoot(appRoutes, { relativeLinkResolution: 'legacy' }),
-    /*  EntrepriseModule, */
     SharedModule,
     ReactiveFormsModule,
-    PdfViewerModule,
-    TooltipModule,
   ],
   declarations: [AppComponent, SignupComponent, LoginComponent],
   providers: [AuthGuard],
