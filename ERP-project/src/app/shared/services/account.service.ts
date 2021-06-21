@@ -57,10 +57,10 @@ export class AccountService {
     return this.http
       .post<any>(`${environment.baseApiPath}/accounts/register`, user)
       .pipe(
-        map((user) => {
+        map((returnedUser) => {
           // store user details and jwt token in local storage to keep user logged in between page refreshes
-          localStorage.setItem('user', JSON.stringify(user));
-          this.userSubject.next(user);
+          localStorage.setItem('user', JSON.stringify(returnedUser));
+          this.userSubject.next(returnedUser);
           return user;
         })
       );

@@ -4,6 +4,8 @@ import { map } from 'rxjs/operators';
 
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CandidateService } from 'src/app/shared/services/candidate.service';
+import { EntrepriseService } from 'src/app/shared/services/entreprise.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulaire-offre',
@@ -12,74 +14,61 @@ import { CandidateService } from 'src/app/shared/services/candidate.service';
 })
 export class FormulaireOffreComponent implements OnInit {
   created: any;
-  offrePost: any;
-
+  offrePost: any = {};
+  createOffreForm = new FormGroup({
+    titre: new FormControl('', [Validators.required]),
+    nb_poste: new FormControl('', [Validators.required]),
+    description: new FormControl('', [Validators.required]),
+  });
+  modifMode = false;
   constructor(
-    private http: HttpClient,
-    private creationOffreService: CandidateService
+    private entrepriseService: EntrepriseService,
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): void {}
-
-  // tslint:disable-next-line: member-ordering
-  createOffreForm = new FormGroup({
-    offreName: new FormControl('', [Validators.required]),
-    societeName: new FormControl('', [Validators.required]),
-    offreDesc: new FormControl('', [Validators.required]),
-  });
-
-  get offreName() {
-    return this.createOffreForm.get('offreName');
+  ngOnInit(): void {
+    this.route.params.subscribe((params) => {
+      if (params && params.titre && params.description) {
+        this.modifMode = true;
+        this.offrePost = {
+          id: params.id,
+          titre: params.titre,
+          description: params.description,
+          nb_poste: params.nb_poste,
+          entreprise: params.entreprise,
+        };
+        this.createOffreForm.patchValue({ ...this.offrePost });
+      }
+    });
   }
-  get societe() {
-    return this.createOffreForm.get('societeName');
+
+  get titre() {
+    return this.createOffreForm.get('titre');
+  }
+  get nb_poste() {
+    return this.createOffreForm.get('nb_poste');
   }
   get description() {
-    return this.createOffreForm.get('offreDesc');
+    return this.createOffreForm.get('this.description');
   }
   onCreatePost() {
-    this.created = {
-      offreName: this.offreName.value,
-      societe: this.societe.value,
-      description: this.description.value,
-    };
-    // Send Http request
-    this.creationOffreService
-      .onCreatePost(this.created)
-      .subscribe((responseData) => {});
-  }
-
-  /*  // tslint:disable-next-line:typedef
-  onFetchData() {
-    this.fetchPosts();
-  }
-
-  // tslint:disable-next-line:typedef
-  private fetchPosts() {
-    this.http
-      .get<{ [key: string]: Offre }>(this.url)
-      .pipe(
-        map((responseData) => {
-          const postsArray: Offre[] = [];
-          for (const key in responseData) {
-            if (responseData.hasOwnProperty(key)) {
-              postsArray.push({ ...responseData[key], id: key });
-            }
-          }
+    if (this.offrePost && this.offrePost.id && this.offrePost.entreprise) {
+      this.entrepriseService
+        .modifierOffre({
+          entreprise: this.offrePost.entreprise,
+          id: this.offrePost.id,
+          ...this.createOffreForm.value,
         })
-      )
-      .subscribe((posts) => {
-        console.log(posts);
-      });
+        .subscribe((responseData) => {
+          this.router.navigate(['/entreprise']);
+        });
+    } else {
+      this.entrepriseService
+        .createOffre(this.createOffreForm.value)
+        .subscribe((responseData) => {
+          this.router.navigate(['/entreprise']);
+        });
+    }
   }
-
-  // tslint:disable-next-line:typedef
-  CreatePost(data: any) {
-    // Send Http request
-    this.http
-      .post<{ name: string }>(this.url, this.offrePost)
-      .subscribe((responseData) => {
-        console.log(responseData);
-      });
-  } */
 }

@@ -105,3 +105,27 @@ select {
     rgba(1, 19, 40, 1) 59%
   );
 }
+
+:host ::ng-deep .avatar-container {
+  width: 40px !important;
+  height: 40px !important;
+
+  margin-top: 15%;
+}
+
+:host ::ng-deep .avatar-content {
+  font: 16px / 40px Helvetica, Arial, sans-serif !important;
+}
+
+.avatar-pos {
+  display: flex;
+}
+ngx-avatar {
+  position: fixed;
+  margin-left: 7px;
+}
+
+.logout-title {
+  text-align: right;
+  width: 120px !important;
+}

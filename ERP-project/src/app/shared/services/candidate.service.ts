@@ -12,12 +12,6 @@ export class CandidateService {
   constructor(private http: HttpClient) {}
 
   onCreatePost(data: any): Observable<any> {
-    let header = new HttpHeaders({
-      token: '09cf310547c18726c995277654dc820db3b9565461b7a2a5b2872c0f007d311f',
-    });
-
-    // ****************** data:Offre
-    // Send Http request
     return this.http.post<any>(this.basePath + '/offres/', data);
   }
   onPostule(data): Observable<any> {

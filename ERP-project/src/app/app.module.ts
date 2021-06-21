@@ -2,15 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SharedModule } from './shared';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './shared/login/login.component';
 import { SignupComponent } from './shared/signup/signup.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { TooltipModule } from 'primeng/tooltip';
 import { AuthGuard } from './shared/services/authGuard';
 import { ReactiveFormsModule } from '@angular/forms';
+import { JwtInterceptor } from './shared/services/jwtinterceptor';
 
 const appRoutes: Routes = [
   {
@@ -48,7 +47,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
   ],
   declarations: [AppComponent, SignupComponent, LoginComponent],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

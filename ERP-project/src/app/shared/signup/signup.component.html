@@ -105,7 +105,9 @@
           class="form-text text-danger"
           >&nbsp;&nbsp;&nbsp;Passwords must match</small
         >
-
+        <small *ngIf="signUpError" class="form-text text-danger"
+          >{{ signUpError }}
+        </small>
         <div class="container-login100-form-btn">
           <button
             class="login100-form-btn"
