@@ -1,4 +1,11 @@
 <nav class="navbar navbar-expand-md navbar-dark">
+  <ngx-avatar
+    *ngIf="isEntrepriseSpace && user$?.user"
+    [pTooltip]="user$?.user?.username"
+    pTooltipPosition="bottom"
+    [name]="user$?.user?.username"
+  ></ngx-avatar>
+
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" [routerLink]="['/']"
@@ -17,7 +24,10 @@
     </button>
 
     <div>
-      <ul class="navbar-nav navbar-right" *ngIf="isEntrepriseSpace">
+      <ul
+        class="navbar-nav navbar-right"
+        *ngIf="isEntrepriseSpace && user$?.user"
+      >
         <li class="avatar-pos active">
           <a
             type="button"
@@ -25,8 +35,8 @@
             routerLink="/"
             (click)="logout()"
             >Logout
+            <i class="fas fa-power-off"></i>
           </a>
-          <ngx-avatar [name]="user$.user.username"></ngx-avatar>
         </li>
       </ul>
     </div>

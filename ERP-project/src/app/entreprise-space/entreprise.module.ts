@@ -1,16 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { TooltipModule } from 'primeng/tooltip';
-
 import { AllCandidatsComponent } from './all-candidats/all-candidats.component';
 import { MyOffresComponent } from './my-offres/my-offres.component';
 import { ProfilComponent } from './profil/profil.component';
 import { FormulaireOffreComponent } from './formulaire-offre/formulaire-offre.component';
-import { PdfViewerModule } from 'ng2-pdf-viewer';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+import { SharedModule } from '../shared';
 const entrepriseRoutes: Routes = [
   {
     path: '',
@@ -45,12 +41,8 @@ const entrepriseRoutes: Routes = [
   ],
   imports: [
     CommonModule,
-    TooltipModule,
-    FormsModule,
-    Ng2SearchPipeModule,
-    ReactiveFormsModule,
+    SharedModule,
     RouterModule.forChild(entrepriseRoutes),
-    PdfViewerModule,
   ],
   exports: [],
 })

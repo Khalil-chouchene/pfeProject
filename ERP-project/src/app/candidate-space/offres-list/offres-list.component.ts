@@ -9,7 +9,7 @@ import { CandidateService } from 'src/app/shared/services/candidate.service';
 })
 export class OffresListComponent implements OnInit {
   offres: any = [];
-
+  searchText;
   constructor(private candidatService: CandidateService) {}
 
   ngOnInit(): void {
