@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidate } from './candidat.model';
-import { CommonModule } from '@angular/common';
-
-import { EntrepriseModule } from './../../entreprise-space/entreprise.module';
 
 @Component({
   selector: 'app-all-candidats',
@@ -11,6 +8,7 @@ import { EntrepriseModule } from './../../entreprise-space/entreprise.module';
 })
 export class AllCandidatsComponent implements OnInit {
   unCandidat: Candidate;
+  searchText;
   candidates = [
     {
       id: 1,
