@@ -18,6 +18,10 @@ export class EntrepriseService {
     return this.http.post<any>(this.basePath + '/offres/', value);
   }
   modifierOffre(value: any): Observable<any> {
-    return this.http.put<any>(this.basePath + '/offres/', value);
+    return this.http.put<any>(this.basePath + `/offres/${value.id}/`, value);
+  }
+
+  deleteOffre(id: any): Observable<any> {
+    return this.http.delete<any>(this.basePath + `/offres/${id}/`);
   }
 }
