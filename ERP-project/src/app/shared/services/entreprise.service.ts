@@ -24,4 +24,8 @@ export class EntrepriseService {
   deleteOffre(id: any): Observable<any> {
     return this.http.delete<any>(this.basePath + `/offres/${id}/`);
   }
+
+  changeEtat(value: any) {
+    return this.http.put<any>(this.basePath + `/condidatures/`, value);
+  }
 }

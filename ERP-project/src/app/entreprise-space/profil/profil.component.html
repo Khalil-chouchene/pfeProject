@@ -1,59 +1,86 @@
-<div
-  class="pdfFile"
-  style="height: 100%; width: 49%; overflow-x: auto; position: absolute"
->
-  <pdf-viewer
-    style="margin-top: -8%; margin-left: -178px"
-    [src]="pdfSrc1"
-    [render-text]="true"
-    [zoom]="0.9"
-    [zoom-scale]="'83%'"
-  ></pdf-viewer>
-</div>
-<!-- <div>
-  <script src="https://apps.elfsight.com/p/platform.js" defer></script>
-  <div class="elfsight-app-8c09e5d8-4690-4d46-a035-78e9df1202ce"></div>
-</div> -->
-<div class="">
-  <div class="profil">
-    <div>
-      <h5>Expériences:</h5>
-      <ul>
-        <li>Responsable de projets événementiels Arccaneo, Paris</li>
-        <li>Office manager</li>
-      </ul>
-    </div>
-    <div>
-      <h5>Formation:</h5>
-      <ul>
-        <li>Titre de directeur de communication EFAP, Paris</li>
-        <li>Licence d'information-communication Université Paris</li>
-      </ul>
-    </div>
-    <div>
-      <h5>Compétences:</h5>
-      <ul>
-        <li>
-          3 ans responsable de projet événementiels et marketing opérationel
-        </li>
-        <li>
-          2 ans en tant qu'office manager au sein d'une start-up europeénne
-        </li>
-      </ul>
+<main role="main" class="view-organization">
+  <div class="container container-view mt-5">
+    <div class="row mb-5">
+      <div class="pdfFile col-sm-6">
+        <pdf-viewer
+          [src]="pdfSrc1"
+          [render-text]="true"
+          [zoom-scale]="'70%'"
+          [original-size]="false"
+          [autoresize]="true"
+        ></pdf-viewer>
+        <ngx-extended-pdf-viewer
+          [src]="path"
+          useBrowserLocale="true"
+          height="80vh"
+        ></ngx-extended-pdf-viewer>
+      </div>
+      <div class="col-5">
+        <div class="profil">
+          <!--  <div>
+            <h5>Nom :</h5>
+            <ul>
+              <li>{{ candidate?.nom }}</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Prénom:</h5>
+            <ul>
+              <li>{{ candidate?.prenom }}</li>
+            </ul>
+          </div>
+          <div>
+            <h5>Email :</h5>
+            <ul>
+              <li>
+                {{ candidate?.email }}
+              </li>
+            </ul>
+          </div> -->
+          <div>
+            <h5>Expériences :</h5>
+            <ul>
+              <li>
+                {{ candidate?.experience }}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5>Compétences :</h5>
+            <ul>
+              <li>
+                {{ candidate?.skills }}
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5>Formation :</h5>
+            <ul>
+              <li>
+                {{ candidate?.degree }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <form action="avis">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea1">Ajoutez votre avis </label>
+            <textarea
+              class="form-control"
+              id="exampleFormControlTextarea1"
+              rows="5"
+            ></textarea>
+          </div>
+        </form>
+        <div class="actions">
+          <button type="button" class="btn btn-success" (click)="accepter()">
+            Accepter
+          </button>
+          <button type="button" class="btn btn-danger" (click)="refuser()">
+            Refuser
+          </button>
+        </div>
+      </div>
     </div>
   </div>
-  <form action="avis">
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">Ajoutez votre avis </label>
-      <textarea
-        class="form-control"
-        id="exampleFormControlTextarea1"
-        rows="5"
-      ></textarea>
-    </div>
-  </form>
-  <div class="actions">
-    <button type="button" class="btn btn-success">Accepter</button>
-    <button type="button" class="btn btn-danger">Refuser</button>
-  </div>
-</div>
+</main>

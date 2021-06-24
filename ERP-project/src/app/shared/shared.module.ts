@@ -10,8 +10,11 @@ import { EntrepriseService } from './services/entreprise.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 import { TooltipModule } from 'primeng/tooltip';
+import { InputSwitchModule } from 'primeng/inputswitch';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, NotFoundComponent],
   imports: [
@@ -21,7 +24,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     ReactiveFormsModule,
     Ng2SearchPipeModule,
+    NgxExtendedPdfViewerModule,
     RouterModule,
+    InputSwitchModule,
     AvatarModule,
   ],
   exports: [
@@ -30,8 +35,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     Ng2SearchPipeModule,
     NotFoundComponent,
     TooltipModule,
+    NgxExtendedPdfViewerModule,
     PdfViewerModule,
     FormsModule,
+    InputSwitchModule,
     ReactiveFormsModule,
   ],
   providers: [CandidateService, EntrepriseService],
