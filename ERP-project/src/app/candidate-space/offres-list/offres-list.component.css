@@ -1,4 +1,4 @@
-.view-organization {
+.view-offre {
   margin-top: 4%;
 }
 
@@ -13,16 +13,16 @@
           flex-direction: column;
 }
 
-.view-organization {
+.form-control {
+  -webkit-box-shadow: 0 10px 40px 0 #b0c1d9;
+          box-shadow: 0 10px 40px 0 #b0c1d9;
+}
+
+.view-offre {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #f9fafb;
-}
-
-.form-control {
-  -webkit-box-shadow: 0 10px 40px 0 #b0c1d9;
-          box-shadow: 0 10px 40px 0 #b0c1d9;
 }
 
 .table-wrapper {
@@ -88,19 +88,13 @@ table.table td a.settings {
   color: #2196f3;
 }
 
-.reject {
-  color: #f44336 !important;
+table.table td a.delete {
+  color: #f44336;
   cursor: pointer;
 }
 
-.accept {
-  color: #10c469 !important;
-  cursor: pointer;
-}
-
-.edit {
-  color: #75bef8 !important;
-  cursor: pointer;
+table.table td a.edit {
+  color: #10c469;
 }
 
 table.table td i {
@@ -119,15 +113,6 @@ table.table .avatar {
   display: inline-block;
   vertical-align: middle;
   line-height: 10px;
-}
-
-.switcher {
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .text-success {
@@ -194,7 +179,7 @@ table.table .avatar {
 
 .table-title {
   padding-bottom: 15px;
-  background: #07646d;
+  background: #435d7d;
   color: #fff;
   padding: 16px 30px;
   margin: -20px -25px 0px;
@@ -232,4 +217,9 @@ table.table .avatar {
   float: left;
   margin-top: 2px;
 }
-/*# sourceMappingURL=all-candidats.component.css.map */
+
+.btn-success {
+  background-color: #10c469;
+  border-color: #10c469;
+}
+/*# sourceMappingURL=offres-list.component.css.map */

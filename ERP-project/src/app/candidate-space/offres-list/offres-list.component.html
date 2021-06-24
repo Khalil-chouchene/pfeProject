@@ -31,7 +31,7 @@
                 <a class="e2e-row-name"> {{ offre.titre }}</a>
               </td>
               <td>{{ offre.description }}</td>
-              <td>{{ offre.entreprise }}</td>
+              <td>{{ offre.entreprise.username }}</td>
               <td>
                 <a [routerLink]="[offre.id]" class="edit">
                   <button type="button" class="btn btn-success">

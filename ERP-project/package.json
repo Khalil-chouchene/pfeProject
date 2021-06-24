@@ -24,6 +24,7 @@
     "ng2-pdf-viewer": "^7.0.1",
     "ng2-search-filter": "^0.5.1",
     "ngx-avatar": "^4.1.0",
+    "ngx-extended-pdf-viewer": "^9.0.2",
     "primeicons": "^4.1.0",
     "primeng": "^11.4.2",
     "rxjs": "~6.6.0",

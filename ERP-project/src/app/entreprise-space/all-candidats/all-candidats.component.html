@@ -9,13 +9,23 @@
               <h2 class="e2e-header-title">Liste des candidats</h2>
             </div>
             <input
-              class="form-control w-50 col-sm-4"
+              class="form-control w-25 col-sm-4"
               type="text"
               name="search"
               [(ngModel)]="searchText"
               autocomplete="off"
               placeholder="&#61442; Rechercher un candidat"
             />
+            <div class="col-sm-4 switcher">
+              <label class="mx-2">Tout</label>
+              <p-inputSwitch
+                [(ngModel)]="etat"
+                inputId="inputSwitch"
+                (onChange)="handleChange($event)"
+              >
+              </p-inputSwitch>
+              <label for="inputSwitch" class="mx-2">En attend </label>
+            </div>
           </div>
         </div>
         <table class="table table-striped table-hover e2e-table-organization">
@@ -24,38 +34,56 @@
               <th class="e2e-thead-name">Nom</th>
               <th class="e2e-thead-description">prénom</th>
               <th class="e2e-thead-titre">titre</th>
-              <th class="e2e-thead-adress">adress</th>
+              <th class="e2e-thead-adress">email</th>
               <th class="e2e-thead-action">Actions</th>
             </tr>
           </thead>
           <tbody>
             <tr
               class="e2e-rows-organizations"
-              *ngFor="let candidate of candidates | filter: searchText"
+              *ngFor="let candidate of filtredCandidates | filter: searchText"
             >
               <td>
-                <a [routerLink]="[candidate.id, 'profil']">
+                <a [routerLink]="['profil', candidate.id]" [state]="candidate">
                   <class class="e2e-row-name" style="cursor: pointer"></class>
-                  {{ candidate.name }}</a
+                  {{ candidate.nom }}</a
                 >
               </td>
-              <td>{{ candidate.LastName }}</td>
-              <td>{{ candidate.titre }}</td>
-              <td>{{ candidate.adress }}</td>
+              <td>{{ candidate.prenom }}</td>
+              <td>{{ candidate.degree }}</td>
+              <td>{{ candidate.email }}</td>
               <td>
                 <a
                   [routerLink]="['profil', candidate.id]"
-                  class="edit e2e-edit"
-                  title="Edit"
+                  [state]="candidate"
+                  class="edit"
+                  title="Consulter"
+                  pTooltip="Consulter cette condidature"
                 >
-                  <i class="far fa-edit"></i>
+                  <i class="fas fa-book-open"></i>
                 </a>
                 <a
-                  class="delete"
-                  title="Delete"
-                  (click)="deleteOrg(candidate.id)"
+                  class="reject"
+                  title="Rejected"
+                  pTooltip="Cette condidature est refuser"
+                  *ngIf="candidate.etat === 2"
                 >
-                  <i class="far fa-trash-alt"></i>
+                  <i class="fas fa-times"></i>
+                </a>
+                <a
+                  class="accept"
+                  title="accept"
+                  pTooltip="Cette condidature est accepter"
+                  *ngIf="candidate.etat === 1"
+                >
+                  <i class="fas fa-check"></i>
+                </a>
+                <a
+                  title="En attend"
+                  pTooltip="Cette condidature en attend"
+                  *ngIf="candidate.etat === 0"
+                >
+                  <i class="fas fa-hourglass-start"></i>
                 </a>
               </td>
             </tr>
